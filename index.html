@@ -1,676 +1,632 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SustentaFab — Manufactura Circular</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SustentaFab | Transformación de Residuos Plásticos en Infraestructura Circular Durable</title>
+    <meta name="description" content="Convertimos residuos plásticos en infraestructura durable, trazable y de bajo mantenimiento para empresas e instituciones públicas.">
+    
+    <!-- Open Graph / Meta Social -->
+    <meta property="og:title" content="SustentaFab — Infraestructura Circular B2B / B2G">
+    <meta property="og:description" content="Transformamos pasivos ambientales en activos de infraestructura física trazables y resilientes.">
+    <meta property="og:type" content="website">
 
-:root{
-  --green:   #0F6E56;
-  --green-md:#1D9E75;
-  --green-lt:#E1F5EE;
-  --ink:     #0D1512;
-  --ink-2:   #2C3B36;
-  --muted:   #5F7A6E;
-  --rule:    rgba(15,110,86,0.15);
-  --bg:      #F7FAF8;
-  --white:   #FFFFFF;
-  --serif:   'DM Serif Display', Georgia, serif;
-  --sans:    'DM Sans', system-ui, sans-serif;
-  --radius:  6px;
-  --max:     1180px;
-}
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        dark: {
+                            800: '#1f2937',
+                            900: '#111827'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.65;overflow-x:hidden}
+    <!-- Google Analytics 4 Script Holder (Reemplazar G-XXXXXXXXXX) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MEASUREMENT_ID', { 'send_page_view': true });
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 48px;height:64px;
-  background:rgba(247,250,248,0.92);
-  backdrop-filter:blur(12px);
-  border-bottom:0.5px solid var(--rule);
-}
-.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.nav-logo svg{width:36px;height:36px}
-.nav-brand{font-family:var(--sans);font-size:17px;font-weight:300;color:var(--ink);letter-spacing:-0.3px}
-.nav-brand strong{font-weight:500}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s}
-.nav-links a:hover{color:var(--green)}
-.nav-cta{
-  font-size:13px;font-weight:500;color:var(--white);
-  background:var(--green);padding:9px 20px;border-radius:var(--radius);
-  text-decoration:none;transition:background .2s;
-}
-.nav-cta:hover{background:var(--green-md)}
+        // Captura y Persistencia de UTMs
+        function getUTMParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const utms = {};
+            ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(param => {
+                if (urlParams.has(param)) utms[param] = urlParams.get(param);
+            });
+            if (Object.keys(utms).length > 0) {
+                sessionStorage.setItem('sustentafab_utms', JSON.stringify(utms));
+            }
+            return JSON.parse(sessionStorage.getItem('sustentafab_utms') || '{}');
+        }
+        getUTMParams();
 
-/* ── HERO ── */
-#hero{
-  min-height:90vh;display:flex;align-items:center;
-  padding:120px 48px 60px;
-  position:relative;overflow:hidden;
-}
-.hero-grid{
-  max-width:var(--max);margin:0 auto;width:100%;
-  display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center;
-}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:11px;font-weight:500;letter-spacing:2.5px;color:var(--green);
-  text-transform:uppercase;margin-bottom:28px;
-}
-.hero-eyebrow span{width:28px;height:1px;background:var(--green);display:inline-block}
-h1{
-  font-family:var(--serif);font-size:clamp(42px,5.5vw,68px);
-  font-weight:400;line-height:1.08;color:var(--ink);
-  margin-bottom:28px;letter-spacing:-0.5px;
-}
-h1 em{font-style:italic;color:var(--green)}
-.hero-desc{font-size:17px;color:var(--muted);line-height:1.7;max-width:540px;margin-bottom:44px}
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
-.btn-primary{
-  font-size:14px;font-weight:500;color:var(--white);
-  background:var(--green);padding:14px 28px;border-radius:var(--radius);
-  text-decoration:none;transition:background .2s;display:inline-block;
-}
-.btn-primary:hover{background:var(--green-md)}
-.btn-ghost{
-  font-size:14px;font-weight:400;color:var(--green);
-  border:0.5px solid var(--green);padding:14px 28px;border-radius:var(--radius);
-  text-decoration:none;transition:all .2s;display:inline-block;
-}
-.btn-ghost:hover{background:var(--green-lt)}
-
-/* Hero visual — stats panel */
-.hero-panel{
-  background:var(--white);border:0.5px solid var(--rule);
-  border-radius:12px;padding:36px;display:flex;flex-direction:column;gap:0;
-  box-shadow: 0 10px 30px rgba(15,110,86,0.04);
-}
-.stat-row{
-  padding:20px 0;border-bottom:0.5px solid var(--rule);
-}
-.stat-row:last-child{border-bottom:none}
-.stat-num{
-  font-family:var(--serif);font-size:38px;color:var(--green);
-  line-height:1;margin-bottom:4px;
-}
-.stat-label{font-size:13px;color:var(--muted);letter-spacing:0.2px}
-
-/* Hero BG pattern */
-.hero-pattern{
-  position:absolute;right:-120px;top:50%;transform:translateY(-50%);
-  width:600px;height:600px;opacity:0.04;pointer-events:none;
-  z-index:0;
-}
-.hero-grid{position:relative;z-index:1}
-
-/* ── COMPARATIVA / EMPATÍA + DATOS (NUEVA SECCIÓN) ── */
-#comparativa{background:var(--white);border-top:0.5px solid var(--rule);border-bottom:0.5px solid var(--rule);padding:80px 48px}
-.comp-header{text-align:center;max-width:700px;margin:0 auto 48px}
-.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:var(--max);margin:0 auto}
-.comp-card{padding:36px;border-radius:12px;border:0.5px solid var(--rule)}
-.comp-card.old{background:rgba(235,238,236,0.5)}
-.comp-card.new{background:var(--green-lt);border-color:var(--green-md)}
-.comp-card h3{font-size:20px;margin-bottom:20px;display:flex;align-items:center;gap:10px}
-.comp-list{list-style:none;display:flex;flex-direction:column;gap:16px}
-.comp-list li{font-size:14px;color:var(--ink-2);line-height:1.6}
-.comp-list strong{color:var(--green);font-weight:600}
-
-/* ── SECTION SHARED ── */
-section{padding:100px 48px}
-.container{max-width:var(--max);margin:0 auto}
-.section-label{
-  font-size:11px;font-weight:500;letter-spacing:2.5px;color:var(--green);
-  text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:8px;
-}
-.section-label::before{content:'';width:24px;height:1px;background:var(--green);display:inline-block}
-h2{
-  font-family:var(--serif);font-size:clamp(32px,4vw,48px);
-  font-weight:400;line-height:1.12;color:var(--ink);margin-bottom:20px;letter-spacing:-0.3px;
-}
-h2 em{font-style:italic;color:var(--green)}
-.section-intro{font-size:17px;color:var(--muted);max-width:560px;line-height:1.7}
-
-/* ── SERVICIOS ── */
-#servicios{background:var(--bg)}
-.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;flex-wrap:wrap;gap:24px}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:0.5px solid var(--rule);border-radius:12px;overflow:hidden}
-.service-card{
-  background:var(--white);padding:40px 36px;
-  transition:background .25s;
-}
-.service-card:hover{background:var(--green-lt)}
-.service-icon{
-  width:44px;height:44px;border-radius:var(--radius);
-  background:var(--green-lt);display:flex;align-items:center;justify-content:center;
-  margin-bottom:24px;
-}
-.service-icon svg{width:22px;height:22px;stroke:var(--green);stroke-width:1.5;fill:none}
-.service-card h3{font-size:18px;font-weight:500;color:var(--ink);margin-bottom:12px;line-height:1.3}
-.service-card p{font-size:14px;color:var(--muted);line-height:1.7}
-.service-tag{
-  display:inline-block;margin-top:20px;font-size:11px;font-weight:500;
-  letter-spacing:1.5px;text-transform:uppercase;color:var(--green);
-  border-bottom:0.5px solid var(--green-md);padding-bottom:2px;
-}
-
-/* ── PROCESO MRV ── */
-#proceso{background:var(--white)}
-.proceso-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:64px}
-.proceso-steps{display:flex;flex-direction:column;gap:0}
-.paso{
-  display:flex;gap:24px;padding:28px 0;
-  border-bottom:0.5px solid var(--rule);
-}
-.paso:last-child{border-bottom:none}
-.paso-num{
-  font-family:var(--serif);font-size:32px;color:var(--green);opacity:0.25;
-  line-height:1;min-width:40px;padding-top:2px;
-}
-.paso-body h4{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px}
-.paso-body p{font-size:14px;color:var(--muted);line-height:1.65}
-.proceso-visual{
-  background:var(--bg);border:0.5px solid var(--rule);
-  border-radius:12px;padding:48px 40px;text-align:center;
-}
-.ciclo-svg{width:100%;max-width:280px;margin:0 auto 32px;display:block}
-.proceso-visual p{font-size:13px;color:var(--muted);max-width:260px;margin:0 auto}
-
-/* ── SOBRE NOSOTROS ── */
-#nosotros{background:var(--ink)}
-#nosotros .section-label{color:var(--green-md)}
-#nosotros .section-label::before{background:var(--green-md)}
-#nosotros h2{color:var(--white)}
-#nosotros h2 em{color:var(--green-md)}
-.nosotros-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.nosotros-left .section-intro{color:rgba(255,255,255,0.55);max-width:480px}
-.nosotros-left .section-intro+p{margin-top:16px;font-size:15px;color:rgba(255,255,255,0.4);line-height:1.7}
-.fundador{
-  margin-top:40px;display:flex;align-items:center;gap:16px;
-  padding-top:32px;border-top:0.5px solid rgba(255,255,255,0.1);
-}
-.fundador-avatar{
-  width:52px;height:52px;border-radius:50%;
-  background:var(--green);display:flex;align-items:center;justify-content:center;
-  font-family:var(--serif);font-size:20px;color:var(--white);flex-shrink:0;
-}
-.fundador-name{font-size:15px;font-weight:500;color:var(--white)}
-.fundador-role{font-size:13px;color:rgba(255,255,255,0.4);margin-top:2px}
-.nosotros-right{display:flex;flex-direction:column;gap:20px}
-.valor-card{
-  background:rgba(255,255,255,0.04);border:0.5px solid rgba(255,255,255,0.08);
-  border-radius:var(--radius);padding:24px 28px;
-}
-.valor-card h4{font-size:14px;font-weight:500;color:var(--green-md);margin-bottom:8px;letter-spacing:0.2px}
-.valor-card p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.65}
-
-/* ── BLOG ── */
-#blog{background:var(--bg)}
-.blog-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;flex-wrap:wrap;gap:24px}
-.blog-link{font-size:13px;color:var(--green);text-decoration:none;border-bottom:0.5px solid var(--green);padding-bottom:1px}
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.blog-card{
-  background:var(--white);border:0.5px solid var(--rule);
-  border-radius:12px;overflow:hidden;transition:transform .25s,box-shadow .25s;
-}
-.blog-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(15,110,86,0.08)}
-.blog-thumb{
-  height:180px;background:var(--green-lt);
-  display:flex;align-items:center;justify-content:center;
-  position:relative;overflow:hidden;
-}
-.blog-thumb svg{width:48px;height:48px;stroke:var(--green);stroke-width:1;fill:none;opacity:0.5}
-.blog-cat{
-  position:absolute;top:16px;left:16px;
-  font-size:10px;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;
-  background:var(--green);color:var(--white);padding:4px 10px;border-radius:3px;
-}
-.blog-body{padding:28px}
-.blog-date{font-size:12px;color:var(--muted);margin-bottom:10px}
-.blog-card h3{font-size:16px;font-weight:500;color:var(--ink);line-height:1.4;margin-bottom:12px}
-.blog-card p{font-size:13px;color:var(--muted);line-height:1.65}
-.blog-read{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:13px;color:var(--green);font-weight:500;text-decoration:none}
-.blog-read svg{width:14px;height:14px;stroke:var(--green);stroke-width:2;transition:transform .2s}
-.blog-read:hover svg{transform:translateX(4px)}
-
-/* ── CONTACTO ── */
-#contacto{background:var(--white)}
-.contacto-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.contact-form{display:flex;flex-direction:column;gap:16px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-label{font-size:13px;font-weight:500;color:var(--ink-2);display:block;margin-bottom:6px}
-input,select,textarea{
-  width:100%;padding:12px 14px;
-  border:0.5px solid rgba(15,110,86,0.25);border-radius:var(--radius);
-  font-family:var(--sans);font-size:14px;color:var(--ink);
-  background:var(--bg);transition:border-color .2s;outline:none;
-}
-input:focus,select:focus,textarea:focus{border-color:var(--green)}
-textarea{resize:vertical;min-height:120px}
-.form-submit{
-  font-size:14px;font-weight:500;color:var(--white);
-  background:var(--green);padding:14px 28px;border-radius:var(--radius);
-  border:none;cursor:pointer;transition:background .2s;text-align:center;
-  margin-top:8px;
-}
-.form-submit:hover{background:var(--green-md)}
-.contact-info{padding-top:8px}
-.contact-info h3{font-family:var(--serif);font-size:28px;color:var(--ink);margin-bottom:16px;line-height:1.2}
-.contact-info p{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:36px}
-.contact-detail{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
-.contact-detail svg{width:18px;height:18px;stroke:var(--green);stroke-width:1.5;fill:none;flex-shrink:0;margin-top:3px}
-.contact-detail div{font-size:14px;color:var(--muted);line-height:1.5}
-.contact-detail strong{color:var(--ink);font-weight:500;display:block}
-.pilots{
-  margin-top:40px;padding-top:32px;border-top:0.5px solid var(--rule);
-}
-.pilots h4{font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
-.pilot-tags{display:flex;gap:10px;flex-wrap:wrap}
-.pilot-tag{
-  font-size:12px;color:var(--green);
-  border:0.5px solid var(--green);padding:5px 12px;border-radius:3px;
-}
-
-/* ── FOOTER ── */
-footer{
-  background:var(--ink-2);padding:40px 48px;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
-}
-.footer-brand{font-size:14px;font-weight:300;color:rgba(255,255,255,0.4)}
-.footer-brand strong{font-weight:500;color:rgba(255,255,255,0.7)}
-.footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.hero-eyebrow{animation:fadeUp .6s ease both}
-h1{animation:fadeUp .7s .1s ease both}
-.hero-desc{animation:fadeUp .7s .2s ease both}
-.hero-actions{animation:fadeUp .7s .3s ease both}
-.hero-panel{animation:fadeUp .8s .35s ease both}
-
-/* ── RESPONSIVE BASIC ── */
-@media(max-width:900px){
-  nav{padding:0 24px}
-  .nav-links{display:none}
-  section,#comparativa{padding:72px 24px}
-  .hero-grid,.nosotros-grid,.contacto-grid,.proceso-wrap,.comp-grid{grid-template-columns:1fr;gap:48px}
-  #hero{padding:100px 24px 64px}
-  .services-grid{grid-template-columns:1fr}
-  .blog-grid{grid-template-columns:1fr}
-  .form-row{grid-template-columns:1fr}
-  footer{padding:32px 24px}
-}
-</style>
+        // Función Helper para Eventos GA4
+        function trackEvent(eventName, params = {}) {
+            const storedUTMs = JSON.parse(sessionStorage.getItem('sustentafab_utms') || '{}');
+            const payload = { ...params, ...storedUTMs };
+            if (typeof gtag === 'function') {
+                gtag('event', eventName, payload);
+            }
+            console.log(`[GA4 Event]: ${eventName}`, payload);
+        }
+    </script>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">
-    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="18" cy="18" r="16" stroke="#0F6E56" stroke-width="0.5" opacity="0.2"/>
-      <path d="M18,2 A16,16 0 1,1 5,26" fill="none" stroke="#0F6E56" stroke-width="2.5" stroke-linecap="round" marker-end="url(#an)"/>
-      <defs>
-        <marker id="an" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-          <path d="M2 1L8 5L2 9" fill="none" stroke="#0F6E56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </marker>
-      </defs>
-      <circle cx="18" cy="18" r="5" fill="none" stroke="#0F6E56" stroke-width="1.2" opacity="0.5"/>
-      <circle cx="18" cy="18" r="2" fill="#0F6E56"/>
-    </svg>
-    <span class="nav-brand">sustenta<strong>fab</strong></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#proceso">Metodología</a></li>
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#blog">Blog</a></li>
-  </ul>
-  <a href="#contacto" class="nav-cta">Iniciar proyecto</a>
-</nav>
+    <!-- NAVEGACIÓN -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">S</div>
+                <span class="font-extrabold text-2xl tracking-tight text-gray-900">Sustenta<span class="text-brand-600">Fab</span></span>
+            </a>
+            
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-gray-700">
+                <a href="#problema" class="hover:text-brand-600 transition">Problemas</a>
+                <a href="#diagnostico" class="hover:text-brand-600 transition">Diagnóstico</a>
+                <a href="#calculadora" class="hover:text-brand-600 transition">Calculadora</a>
+                <a href="#evidencia" class="hover:text-brand-600 transition">Evidencia Técnica</a>
+                <a href="#casos" class="hover:text-brand-600 transition">Casos Reales</a>
+                <a href="#proceso" class="hover:text-brand-600 transition">Contratación</a>
+            </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <svg class="hero-pattern" viewBox="0 0 400 400" fill="none" aria-hidden="true">
-    <circle cx="200" cy="200" r="180" stroke="#0F6E56" stroke-width="0.5"/>
-    <circle cx="200" cy="200" r="140" stroke="#0F6E56" stroke-width="0.5"/>
-    <circle cx="200" cy="200" r="100" stroke="#0F6E56" stroke-width="0.5"/>
-    <circle cx="200" cy="200" r="60" stroke="#0F6E56" stroke-width="0.5"/>
-    <line x1="200" y1="20" x2="200" y2="380" stroke="#0F6E56" stroke-width="0.5"/>
-    <line x1="20" y1="200" x2="380" y2="200" stroke="#0F6E56" stroke-width="0.5"/>
-    <line x1="73" y1="73" x2="327" y2="327" stroke="#0F6E56" stroke-width="0.5"/>
-    <line x1="327" y1="73" x2="73" y2="327" stroke="#0F6E56" stroke-width="0.5"/>
-  </svg>
-  <div class="hero-grid">
-    <div>
-      <div class="hero-eyebrow"><span></span>Manufactura circular · Chile</div>
-      <h1>Residuo plástico convertido en <em>infraestructura inteligente</em></h1>
-      <p class="hero-desc">Sabemos la frustración de licitar mobiliario que se destruye en 2 años o pagar por botar residuos plásticos. Transformamos ese dolor en infraestructura duradera mediante impresión 3D a gran escala con métricas de impacto auditable.</p>
-      <div class="hero-actions">
-        <a href="#contacto" class="btn-primary">Iniciar un proyecto</a>
-        <a href="#servicios" class="btn-ghost">Ver soluciones</a>
-      </div>
-    </div>
-    <div class="hero-panel">
-      <div class="stat-row">
-        <div class="stat-num">$0</div>
-        <div class="stat-label">Costo de mantención por pintura, barniz o corrosión a 5 años</div>
-      </div>
-      <div class="stat-row">
-        <div class="stat-num">MRV</div>
-        <div class="stat-label">Trazabilidad completa: Medir · Reportar · Verificar por producto</div>
-      </div>
-      <div class="stat-row">
-        <div class="stat-num">TRL 5</div>
-        <div class="stat-label">Madurez tecnológica validada en entorno real (Quilpué y Vitacura)</div>
-      </div>
-      <div class="stat-row">
-        <div class="stat-num">B2G · B2B</div>
-        <div class="stat-label">Reportes auditables compatibles con HuellaChile y metas ESG</div>
-      </div>
-    </div>
-  </div>
-</section>
+            <div class="flex items-center gap-4">
+                <a href="#diagnostico" onclick="trackEvent('click_cta', { location: 'navbar', cta_text: 'Evaluar mi proyecto' })" class="bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow-sm transition">
+                    Evaluar mi proyecto
+                </a>
+            </div>
+        </div>
+    </header>
 
-<!-- COMPARATIVA EMPÁTICA / DATOS -->
-<section id="comparativa">
-  <div class="comp-header">
-    <div class="section-label" style="justify-content:center;">El verdadero retorno de inversión</div>
-    <h2>¿Cuánto cuesta mantener el <em>modelo tradicional?</em></h2>
-    <p class="section-intro" style="margin:0 auto;">Unimos la eliminación de costos ocultos de mantención con el rigor de la certificación ambiental.</p>
-  </div>
-  <div class="comp-grid">
-    <div class="comp-card old">
-      <h3>⚠️ Infraestructura Tradicional</h3>
-      <ul class="comp-list">
-        <li>❌ <strong>Vida útil corta (2-3 años):</strong> Madera nativa y metal sufren rápido deterioro por intemperie y radiación UV.</li>
-        <li>❌ <strong>Gastos recurrentes:</strong> Las mantenciones de repintado y reparación pueden costar hasta el 100% de la inversión inicial a 5 años.</li>
-        <li>❌ <strong>Residuos como gasto:</strong> Las empresas pagan alto costo por fletes y botaderos de polímeros.</li>
-        <li>❌ <strong>Riesgo de Greenwashing:</strong> Declaraciones ambientales sin respaldo auditable ni trazable.</li>
-      </ul>
-    </div>
-    <div class="comp-card new">
-      <h3>🌱 Solución SustentaFab</h3>
-      <ul class="comp-list">
-        <li>✅ <strong>Durabilidad 10+ años:</strong> Fabricado con plástico reciclado de alta densidad resistente a la humedad y el sol.</li>
-        <li>✅ <strong>$0 en mantención:</strong> Cero pintura, cero barniz y alta resistencia a impactos mecánicos.</li>
-        <li>✅ <strong>Economía circular cerrada:</strong> Retornamos tus propios residuos transformados en activos corporativos.</li>
-        <li>✅ <strong>Datos 100% Auditables (MRV):</strong> Reportes de CO₂e evitado listos para HuellaChile y memorias ESG.</li>
-      </ul>
-    </div>
-  </div>
-</section>
+    <!-- 1. HERO SECTION -->
+    <section class="relative bg-gradient-to-b from-brand-50/50 to-white pt-16 pb-20 lg:pt-24 lg:pb-28 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider mb-6">
+                    <span>Tecnología TRL 5 Validada en Terreno</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-tight">
+                    Convierte residuos plásticos en <span class="text-brand-600">infraestructura que dura.</span>
+                </h1>
+                <p class="mt-6 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Transformamos residuos poliméricos en soluciones de infraestructura durable, trazable y de bajo mantenimiento para empresas, corporaciones e instituciones públicas.
+                </p>
+                
+                <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#diagnostico" onclick="trackEvent('click_cta', { location: 'hero_primary', cta_text: 'Evaluar mi proyecto' })" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 text-center">
+                        Evaluar mi proyecto
+                    </a>
+                    <a href="#casos" onclick="trackEvent('click_cta', { location: 'hero_secondary', cta_text: 'Ver casos reales' })" class="w-full sm:w-auto bg-white border-2 border-gray-200 hover:border-brand-600 text-gray-800 hover:text-brand-600 font-bold text-base px-8 py-4 rounded-xl transition text-center">
+                        Ver casos reales
+                    </a>
+                </div>
 
-<!-- SERVICIOS -->
-<section id="servicios">
-  <div class="container">
-    <div class="services-header">
-      <div>
-        <div class="section-label">Soluciones</div>
-        <h2>Infraestructura <em>circular</em><br>para el sector público y privado</h2>
-      </div>
-      <p class="section-intro">Sin promesas vacías. Cada producto se entrega con un certificado de impacto ambiental auditable para proteger tu gestión ante concejos municipales y auditores corporativos.</p>
-    </div>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <!-- Métricas Rápidas de Confianza -->
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-gray-200/80">
+                    <div>
+                        <p class="text-3xl font-black text-brand-600">TRL 5</p>
+                        <p class="text-xs font-medium text-gray-500 uppercase mt-1">Entorno Relevante Validado</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-black text-brand-600">100%</p>
+                        <p class="text-xs font-medium text-gray-500 uppercase mt-1">Polímero Trazable</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-black text-brand-600">Pilotos</p>
+                        <p class="text-xs font-medium text-gray-500 uppercase mt-1">Vitacura y Quilpué</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-black text-brand-600">Bajo TCO</p>
+                        <p class="text-xs font-medium text-gray-500 uppercase mt-1">Mantenimiento Reducido</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h3>Mobiliario urbano adaptado</h3>
-        <p>Escaños para adultos mayores, tótems y paraderos sustentables. Diseñados para que tu municipio no tenga que licitar reposiciones año tras año.</p>
-        <span class="service-tag">B2G · Municipios</span>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
-        <h3>Infraestructura industrial sostenible</h3>
-        <p>Paneles de segregación vial, cierres y paisajismo corporativo fabricados con estándar técnico superior frente al uso de materiales fósiles.</p>
-        <span class="service-tag">B2B · Corporativo</span>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-        </div>
-        <h3>Economía circular cerrada</h3>
-        <p>Transformamos tu costo de eliminación de residuos plásticos en equipamiento real para tus propias instalaciones — con trazabilidad desde el retiro.</p>
-        <span class="service-tag">B2B · ESG</span>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- PROCESO MRV -->
-<section id="proceso">
-  <div class="container">
-    <div class="section-label">Metodología</div>
-    <h2>Impacto que se <em>mide,</em><br>reporta y verifica</h2>
-    <div class="proceso-wrap">
-      <div class="proceso-steps">
-        <div class="paso">
-          <div class="paso-num">01</div>
-          <div class="paso-body">
-            <h4>Medir</h4>
-            <p>Calculamos exactamente el plástico procesado y la huella de CO₂e evitada comparado contra el uso de hormigón o madera nativa.</p>
-          </div>
+    <!-- 2. SELECTOR VISUAL DE PROBLEMA -->
+    <section id="problema" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">¿Qué problema quieres resolver?</h2>
+                <p class="mt-4 text-gray-600">Selecciona tu desafío prioritario para enfocar la evaluación técnica de tu organización.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <!-- Opción 1 -->
+                <div onclick="selectProblem('residuos')" class="cursor-pointer bg-gray-50 hover:bg-brand-50 border-2 border-gray-100 hover:border-brand-500 rounded-2xl p-6 transition duration-200 group">
+                    <div class="text-3xl mb-4">♻️</div>
+                    <h3 class="font-bold text-gray-900 group-hover:text-brand-700 text-lg mb-2">Tengo residuos plásticos</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">Quiero valorizarlos en productos o infraestructura propia.</p>
+                </div>
+
+                <!-- Opción 2 -->
+                <div onclick="selectProblem('infraestructura')" class="cursor-pointer bg-gray-50 hover:bg-brand-50 border-2 border-gray-100 hover:border-brand-500 rounded-2xl p-6 transition duration-200 group">
+                    <div class="text-3xl mb-4">🏭</div>
+                    <h3 class="font-bold text-gray-900 group-hover:text-brand-700 text-lg mb-2">Necesito infraestructura</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">Busco una alternativa ultra durable para instalaciones o proyectos.</p>
+                </div>
+
+                <!-- Opción 3 -->
+                <div onclick="selectProblem('costos')" class="cursor-pointer bg-gray-50 hover:bg-brand-50 border-2 border-gray-100 hover:border-brand-500 rounded-2xl p-6 transition duration-200 group">
+                    <div class="text-3xl mb-4">💰</div>
+                    <h3 class="font-bold text-gray-900 group-hover:text-brand-700 text-lg mb-2">Quiero reducir costos</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">Deseo mitigar costos de mantenimiento, reposición y disposición.</p>
+                </div>
+
+                <!-- Opción 4 -->
+                <div onclick="selectProblem('esg')" class="cursor-pointer bg-gray-50 hover:bg-brand-50 border-2 border-gray-100 hover:border-brand-500 rounded-2xl p-6 transition duration-200 group">
+                    <div class="text-3xl mb-4">🌱</div>
+                    <h3 class="font-bold text-gray-900 group-hover:text-brand-700 text-lg mb-2">Demostrar impacto ESG</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">Requiero trazabilidad auditada e indicadores ambientales veraces.</p>
+                </div>
+
+                <!-- Opción 5 -->
+                <div onclick="selectProblem('b2g')" class="cursor-pointer bg-gray-50 hover:bg-brand-50 border-2 border-gray-100 hover:border-brand-500 rounded-2xl p-6 transition duration-200 group">
+                    <div class="text-3xl mb-4">🏛️</div>
+                    <h3 class="font-bold text-gray-900 group-hover:text-brand-700 text-lg mb-2">Proyecto Público / B2G</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">Busco soluciones sustentables para espacio urbano o compras públicas.</p>
+                </div>
+            </div>
         </div>
-        <div class="paso">
-          <div class="paso-num">02</div>
-          <div class="paso-body">
-            <h4>Reportar</h4>
-            <p>Entregamos un informe con valor auditable, listo para ser adjuntado en memorias de sostenibilidad corporativa y programas como HuellaChile.</p>
-          </div>
+    </section>
+
+    <!-- 3. DIAGNÓSTICO INTERACTIVO -->
+    <section id="diagnostico" class="py-20 bg-dark-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-brand-500 text-xs font-bold uppercase tracking-widest">Preevaluación Comercial B2B/B2G</span>
+                <h2 class="text-3xl font-extrabold sm:text-4xl mt-2">¿Tu proyecto es candidato para SustentaFab?</h2>
+                <p class="mt-3 text-gray-400 text-sm">Responde 4 preguntas breves para determinar la factibilidad técnica y económica preliminar.</p>
+            </div>
+
+            <div class="bg-dark-800 border border-gray-700 rounded-2xl p-8 shadow-2xl">
+                <form id="diagnostic-form" onsubmit="handleDiagnosticSubmit(event)">
+                    <!-- Paso 1 -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-200 mb-2">1. Tipo de Organización</label>
+                        <select id="diag-org" required class="w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-white focus:ring-2 focus:ring-brand-500 text-sm">
+                            <option value="">Selecciona una opción...</option>
+                            <option value="empresa_privada">Empresa Privada / Corporación</option>
+                            <option value="municipio">Municipio / Gobierno Local</option>
+                            <option value="institucion">Institución Educativa / Servicios</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <!-- Paso 2 -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-200 mb-2">2. Desafío Principal</label>
+                        <select id="diag-problem" required class="w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-white focus:ring-2 focus:ring-brand-500 text-sm">
+                            <option value="">Selecciona una opción...</option>
+                            <option value="gestion_residuos">Disposición y costo de residuos plásticos internos</option>
+                            <option value="adquisicion_infraestructura">Requerimiento de mobiliario / infraestructura durable</option>
+                            <option value="cumplimiento_esg">Metas de Sustentabilidad y Reportabilidad ESG</option>
+                            <option value="espacio_publico">Renovación de espacio público municipal</option>
+                        </select>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-200 mb-2">3. Volumen Estimado de Residuo Polimérico o Infraestructura</label>
+                        <select id="diag-volume" required class="w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-white focus:ring-2 focus:ring-brand-500 text-sm">
+                            <option value="">Selecciona una opción...</option>
+                            <option value="bajo">Menos de 500 kg / Proyecto puntual</option>
+                            <option value="medio">500 kg a 2.000 kg / Proyecto mediano</option>
+                            <option value="alto">Más de 2.000 kg / Requerimiento continuo</option>
+                            <option value="no_se">No lo tengo calculado aún</option>
+                        </select>
+                    </div>
+
+                    <!-- Paso 4 -->
+                    <div class="mb-8">
+                        <label class="block text-sm font-semibold text-gray-200 mb-2">4. Plazo Estimado de Implementación</label>
+                        <select id="diag-timeline" required class="w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-white focus:ring-2 focus:ring-brand-500 text-sm">
+                            <option value="">Selecciona una opción...</option>
+                            <option value="inmediato">Inmediato (1 - 3 meses)</option>
+                            <option value="mediano">Mediano plazo (3 - 6 meses)</option>
+                            <option value="planificacion">Planificación anual / Presupuesto futuro</option>
+                        </select>
+                    </div>
+
+                    <!-- Datos de Contacto Captura Lead -->
+                    <div class="border-t border-gray-700 pt-6 grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-400 mb-1">Nombre Completo *</label>
+                            <input type="text" id="lead-name" required placeholder="Ej: Ana Gómez" class="w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-white text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-400 mb-1">Correo Corporativo *</label>
+                            <input type="email" id="lead-email" required placeholder="ejemplo@empresa.com" class="w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-white text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-400 mb-1">Organización / Empresa *</label>
+                            <input type="text" id="lead-org" required placeholder="Nombre entidad" class="w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-white text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-400 mb-1">Teléfono / WhatsApp *</label>
+                            <input type="tel" id="lead-phone" required placeholder="+56 9 1234 5678" class="w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-white text-sm">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 rounded-xl shadow-lg transition">
+                        Obtener Resultado del Diagnóstico
+                    </button>
+                </form>
+
+                <!-- Resultado Diagnóstico -->
+                <div id="diagnostic-result" class="hidden mt-6 p-6 rounded-xl border">
+                    <!-- Se inyecta dinámicamente vía JS -->
+                </div>
+            </div>
         </div>
-        <div class="paso">
-          <div class="paso-num">03</div>
-          <div class="paso-body">
-            <h4>Verificar</h4>
-            <p>Ofrecemos trazabilidad de punta a punta, protegiendo a tu organización frente a cualquier cuestionamiento o auditoría externa.</p>
-          </div>
+    </section>
+
+    <!-- 4. CALCULADORA DE CIRCULARIDAD -->
+    <section id="calculadora" class="py-20 bg-gray-50 border-b border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-brand-600 text-xs font-bold uppercase tracking-widest">Estimación Técnica Preliminar</span>
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mt-2">Calculadora de Valorización de Residuo Plástico</h2>
+                <p class="mt-2 text-gray-600 text-sm">Fórmulas basadas en densidad y equivalencia de mezcla polimérica para infraestructura.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-gray-900 mb-4">Parámetros de Entrada</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Volumen de Residuo Plástico (Kg)</label>
+                            <input type="number" id="calc-kg" value="1000" min="100" step="100" oninput="calculateImpact()" class="w-full border border-gray-300 rounded-lg p-3 text-gray-900 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Tipo de Polímero Dominante</label>
+                            <select id="calc-type" onchange="calculateImpact()" class="w-full border border-gray-300 rounded-lg p-3 text-gray-900 text-sm">
+                                <option value="1.0">PEAD / PEBD (Polietileno)</option>
+                                <option value="0.95">PP (Polipropileno)</option>
+                                <option value="0.9">Mezcla Polimérica Industrial</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-4 leading-relaxed">
+                        *Nota: Estimación técnica preliminar sujetas a ensayos de caracterización reológica del material.
+                    </p>
+                </div>
+
+                <div class="bg-brand-50/60 rounded-xl p-6 flex flex-col justify-between border border-brand-100">
+                    <div>
+                        <h4 class="text-xs font-bold text-brand-800 uppercase tracking-wider mb-4">Potencial de Transformación Estimado</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-xs text-gray-500">Mobiliario / Unidades Estimadas:</p>
+                                <p id="calc-out-units" class="text-3xl font-black text-brand-700">~ 25 Unidades</p>
+                                <p class="text-[10px] text-gray-500">Basado en bancas/módulos estándar de 40kg</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500">Reducción Estimada Ocupación Relleno:</p>
+                                <p id="calc-out-volume" class="text-xl font-bold text-gray-800">~ 3.2 m³</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#diagnostico" onclick="trackEvent('click_cta', { location: 'calculator', cta_text: 'Validar estos números' })" class="mt-6 block text-center bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs py-3 rounded-lg transition">
+                        Validar estos números con un Especialista
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="paso">
-          <div class="paso-num">04</div>
-          <div class="paso-body">
-            <h4>Reconocer</h4>
-            <p>Registramos el impacto en el balance ambiental del cliente para validar el cumplimiento real de sus metas climáticas locales.</p>
-          </div>
+    </section>
+
+    <!-- 5. EVIDENCIA TÉCNICA & TRL 5 -->
+    <section id="evidencia" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 text-xs font-bold uppercase tracking-widest">Matriz de Respaldo</span>
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mt-2">La tecnología debe demostrarlo</h2>
+                <p class="mt-4 text-gray-600">Desglose transparente de afirmaciones, evidencias comprobadas y limitaciones técnicas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tarjeta 1 -->
+                <div class="border border-gray-200 rounded-2xl p-6 hover:shadow-md transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded">TRL 5</span>
+                        <span class="text-xs text-gray-400">Estado Tecnológico</span>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Validación en Entorno Relevante</h3>
+                    <p class="text-xs text-gray-600 mb-4">Componentes validados en ambientes operacionales reales bajo condiciones climáticas variables.</p>
+                    <div class="text-xs space-y-2 border-t border-gray-100 pt-3">
+                        <p><strong class="text-gray-800">Evidencia:</strong> Pilotos instalados en espacio público (Quilpué y Vitacura).</p>
+                        <p><strong class="text-gray-800">Limitación:</strong> Certificación continua a escala industrial en proceso de expansión.</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="border border-gray-200 rounded-2xl p-6 hover:shadow-md transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded">Durabilidad</span>
+                        <span class="text-xs text-gray-400">Resistencia</span>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Bajo Mantenimiento Físico</h3>
+                    <p class="text-xs text-gray-600 mb-4">Alta resistencia a humedad, radiación UV moderada y no susceptibilidad a pudrición o corrosión.</p>
+                    <div class="text-xs space-y-2 border-t border-gray-100 pt-3">
+                        <p><strong class="text-gray-800">Evidencia:</strong> Ensayos de tracción y comportamiento de material reciclado en matriz.</p>
+                        <p><strong class="text-gray-800">Limitación:</strong> Requiere anclaje estructural específico según tipo de suelo.</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="border border-gray-200 rounded-2xl p-6 hover:shadow-md transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded">Trazabilidad</span>
+                        <span class="text-xs text-gray-400">Reportabilidad ESG</span>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Balance de Masa Auditado</h3>
+                    <p class="text-xs text-gray-600 mb-4">Certificado del origen del residuo polimérico incorporado en la infraestructura fabricada.</p>
+                    <div class="text-xs space-y-2 border-t border-gray-100 pt-3">
+                        <p><strong class="text-gray-800">Evidencia:</strong> Documentación de declaración de origen por lote fabricado.</p>
+                        <p><strong class="text-gray-800">Limitación:</strong> Sujeto a la segregación previa de resina por parte del generador.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="proceso-visual">
-        <svg class="ciclo-svg" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <marker id="ac" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-              <path d="M2 1L8 5L2 9" fill="none" stroke="#0F6E56" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </marker>
-          </defs>
-          <circle cx="140" cy="140" r="110" stroke="#E1F5EE" stroke-width="20"/>
-          <path d="M140,30 A110,110 0 1,1 35,175" fill="none" stroke="#0F6E56" stroke-width="3" stroke-linecap="round" marker-end="url(#ac)"/>
-          <circle cx="140" cy="140" r="60" fill="none" stroke="#E1F5EE" stroke-width="1"/>
-          <circle cx="140" cy="140" r="30" fill="#E1F5EE"/>
-          <circle cx="140" cy="140" r="8" fill="#0F6E56"/>
-          <text x="140" y="14" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#0F6E56" font-weight="500">MEDIR</text>
-          <text x="258" y="144" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#0F6E56" font-weight="500">REPORTAR</text>
-          <text x="140" y="270" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#0F6E56" font-weight="500">VERIFICAR</text>
-          <text x="22" y="144" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#0F6E56" font-weight="500">RECONOCER</text>
+    </section>
+
+    <!-- 6. CASOS REALES EN TERRENO -->
+    <section id="casos" class="py-20 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 text-xs font-bold uppercase tracking-widest">Despliegue Institucional</span>
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mt-2">Ya está funcionando en terreno</h2>
+                <p class="mt-3 text-gray-600">Validaciones y pilotos documentados en espacios públicos y corporativos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Caso 1 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Municipio / Gobierno Local</span>
+                            <span class="text-xs font-semibold text-brand-600 bg-brand-50 px-2 py-1 rounded">Piloto Terreno</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Mobiliario Urbano en Vitacura y Quilpué</h3>
+                        <div class="space-y-3 text-xs text-gray-600 my-4">
+                            <p><strong class="text-gray-800">Problema:</strong> Necesidad de mobiliario urbano de alto tráfico con baja necesidad de mantención por corrosión o astillado.</p>
+                            <p><strong class="text-gray-800">Solución:</strong> Instalación de módulos de bancas y activos urbanos fabricados con polímeros reciclados.</p>
+                            <p><strong class="text-gray-800">Resultado:</strong> Validación operacional de resistencia a la intemperie y uso público continuo.</p>
+                        </div>
+                    </div>
+                    <a href="#diagnostico" onclick="trackEvent('click_cta', { location: 'case_vitacura', cta_text: 'Quiero un proyecto similar' })" class="mt-4 text-xs font-bold text-brand-600 hover:text-brand-800 inline-flex items-center gap-1">
+                        Quiero un proyecto similar &rarr;
+                    </a>
+                </div>
+
+                <!-- Caso 2 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Sector Industrial / B2B</span>
+                            <span class="text-xs font-semibold text-brand-600 bg-brand-50 px-2 py-1 rounded">Valorización</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Transformación de Merma Polimérica Industrial</h3>
+                        <div class="space-y-3 text-xs text-gray-600 my-4">
+                            <p><strong class="text-gray-800">Problema:</strong> Altos costos logísticos y de disposición final de mermas plásticas de proceso.</p>
+                            <p><strong class="text-gray-800">Solución:</strong> Recuperación e integración de resinas industriales en activos de infraestructura física.</p>
+                            <p><strong class="text-gray-800">Resultado:</strong> Reingreso de residuo como activo patrimonial dentro de las mismas dependencias de la empresa.</p>
+                        </div>
+                    </div>
+                    <a href="#diagnostico" onclick="trackEvent('click_cta', { location: 'case_b2b', cta_text: 'Quiero un proyecto similar' })" class="mt-4 text-xs font-bold text-brand-600 hover:text-brand-800 inline-flex items-center gap-1">
+                        Quiero un proyecto similar &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PROCESO DE COMPRA Y REDUCCIÓN DE RIESGO -->
+    <section id="proceso" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 text-xs font-bold uppercase tracking-widest">Metodología de Implementación</span>
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mt-2">¿Cómo se evalúa y contrata?</h2>
+                <p class="mt-3 text-gray-600 text-sm">No necesitas adquirir volúmenes masivos para descubrir la factibilidad técnica.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-center">
+                <div class="p-6 bg-gray-50 rounded-xl border border-gray-100">
+                    <span class="text-2xl font-black text-brand-600">01</span>
+                    <h4 class="font-bold text-sm text-gray-900 mt-2">Diagnóstico</h4>
+                    <p class="text-xs text-gray-500 mt-1">Análisis de residuo o necesidad de infraestructura.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-xl border border-gray-100">
+                    <span class="text-2xl font-black text-brand-600">02</span>
+                    <h4 class="font-bold text-sm text-gray-900 mt-2">Diseño Técnico</h4>
+                    <p class="text-xs text-gray-500 mt-1">Definición de mezcla, dimensiones y resistencia.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-xl border border-gray-100">
+                    <span class="text-2xl font-black text-brand-600">03</span>
+                    <h4 class="font-bold text-sm text-gray-900 mt-2">Piloto / Muestra</h4>
+                    <p class="text-xs text-gray-500 mt-1">Validación a escala acotada en entorno real.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-xl border border-gray-100">
+                    <span class="text-2xl font-black text-brand-600">04</span>
+                    <h4 class="font-bold text-sm text-gray-900 mt-2">Evaluación</h4>
+                    <p class="text-xs text-gray-500 mt-1">Revisión de desempeño e impacto ESG generado.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-xl border border-gray-100">
+                    <span class="text-2xl font-black text-brand-600">05</span>
+                    <h4 class="font-bold text-sm text-gray-900 mt-2">Escalamiento</h4>
+                    <p class="text-xs text-gray-500 mt-1">Producción y contrato de suministro continuo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FAQ COMERCIAL B2B/B2G -->
+    <section class="py-20 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900">Preguntas Frecuentes Comerciales</h2>
+            </div>
+
+            <div class="space-y-4">
+                <details class="bg-white p-6 rounded-xl border border-gray-200 cursor-pointer">
+                    <summary class="font-bold text-gray-900 text-sm">¿Qué tipo de plásticos pueden ser procesados?</summary>
+                    <p class="text-xs text-gray-600 mt-3 leading-relaxed">
+                        Principalmente termoplásticos de las familias de Polietileno (PEAD/PEBD) y Polipropileno (PP). Se realiza una caracterización previa durante la etapa de diagnóstico técnico.
+                    </p>
+                </details>
+
+                <details class="bg-white p-6 rounded-xl border border-gray-200 cursor-pointer">
+                    <summary class="font-bold text-gray-900 text-sm">¿Cómo se gestiona la contratación por el sector público (B2G)?</summary>
+                    <p class="text-xs text-gray-600 mt-3 leading-relaxed">
+                        A través de licitaciones públicas, convenios marco o trato directo por causales normadas de innovación/pilotos de validación según la legislación de compras públicas.
+                    </p>
+                </details>
+
+                <details class="bg-white p-6 rounded-xl border border-gray-200 cursor-pointer">
+                    <summary class="font-bold text-gray-900 text-sm">¿Ofrecen garantía sobre los productos entregados?</summary>
+                    <p class="text-xs text-gray-600 mt-3 leading-relaxed">
+                        Sí, cada partida cuenta con especificaciones técnicas de resistencia y garantía estándar de fabricación contra fallas estructurales no provocadas por vandalismo.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER Y WHATSAPP FLOTANTE CONTEXTUAL -->
+    <footer class="bg-dark-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="font-bold text-white text-lg">SustentaFab</span>
+                <p class="text-xs text-gray-500 mt-1">Soluciones Idiomáticas Integrales SpA / SustentaFab © 2026</p>
+            </div>
+            <div class="flex gap-6 text-xs font-semibold">
+                <a href="#problema" class="hover:text-white">Problemas</a>
+                <a href="#diagnostico" class="hover:text-white">Diagnóstico</a>
+                <a href="#evidencia" class="hover:text-white">Evidencia</a>
+                <a href="#proceso" class="hover:text-white">Contratación</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp Contextual -->
+    <a id="whatsapp-btn" href="https://wa.me/56912345678?text=Hola,%20quiero%20evaluar%20un%20proyecto%20de%20infraestructura%20circular%20para%20mi%20organizacion." target="_blank" onclick="trackEvent('whatsapp_click', { cta_text: 'whatsapp_float' })" class="fixed bottom-6 right-6 bg-emerald-500 hover:bg-emerald-600 text-white p-4 rounded-full shadow-2xl z-50 transition transform hover:scale-105 flex items-center justify-center">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
         </svg>
-        <p>Cada producto SustentaFab entrega un certificado de impacto ambiental auditable — datos duros para sus balances climáticos y reportes ESG.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </a>
 
-<!-- SOBRE NOSOTROS -->
-<section id="nosotros">
-  <div class="container">
-    <div class="nosotros-grid">
-      <div class="nosotros-left">
-        <div class="section-label">Sobre nosotros</div>
-        <h2>Cerramos el ciclo del <em>plástico</em></h2>
-        <p class="section-intro">SustentaFab es una empresa de base tecnológica que integra ecodiseño, ciencia de materiales y fabricación aditiva para transformar residuos poliméricos en infraestructura duradera e inteligente.</p>
-        <p style="margin-top:16px;font-size:15px;color:rgba(255,255,255,0.4);line-height:1.7">Operamos con pilotos activos en Quilpué y Vitacura, consolidando nuestra validación tecnológica temprana (TRL 3→5) para el escalamiento de nuestra planta de impresión 3D automatizada.</p>
-        <div class="fundador">
-          <div class="fundador-avatar">RG</div>
-          <div>
-            <div class="fundador-name">Raúl Galleguillos</div>
-            <div class="fundador-role">Director y Fundador</div>
-          </div>
-        </div>
-      </div>
-      <div class="nosotros-right">
-        <div class="valor-card">
-          <h4>Ecodiseño + Ingeniería de materiales</h4>
-          <p>Cada producto está optimizado para la intemperie y diseñado desde el origen con plástico reciclado, no como sustituto sino como material primario de alta prestación.</p>
-        </div>
-        <div class="valor-card">
-          <h4>Impresión 3D modular a gran escala</h4>
-          <p>Nuestra tecnología permite pasar del prototipo funcional a la producción a escala con flexibilidad de diseño — adaptando los productos a las necesidades específicas de cada municipio o empresa.</p>
-        </div>
-        <div class="valor-card">
-          <h4>Trazabilidad ambiental completa</h4>
-          <p>Conectamos la recolección de residuos con el impacto verificable. Los datos son irrefutables, auditables y compatibles con los reguladores y programas de certificación vigentes en Chile.</p>
-        </div>
-        <div class="valor-card">
-          <h4>Alianzas estratégicas B2G y B2B</h4>
-          <p>Participamos activamente en licitaciones públicas, convenios marco y Compra Ágil, además de contratos corporativos directos con empresas que buscan mejorar sus indicadores ESG.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- LÓGICA JAVASCRIPT DINÁMICA DE NEGOCIO -->
+    <script>
+        // 1. Selector de Problemas
+        function selectProblem(type) {
+            trackEvent('view_solution', { problem_selected: type });
+            const problemSelect = document.getElementById('diag-problem');
+            if (type === 'residuos') problemSelect.value = 'gestion_residuos';
+            if (type === 'infraestructura') problemSelect.value = 'adquisicion_infraestructura';
+            if (type === 'esg') problemSelect.value = 'cumplimiento_esg';
+            if (type === 'b2g') problemSelect.value = 'espacio_publico';
+            
+            // Scroll suave hacia el diagnóstico
+            document.getElementById('diagnostico').scrollIntoView({ behavior: 'smooth' });
+            
+            // Actualizar mensaje de WhatsApp según contexto
+            const waBtn = document.getElementById('whatsapp-btn');
+            const messages = {
+                'residuos': 'Hola,%20quiero%20evaluar%20si%20mis%20residuos%20plasticos%20pueden%20ser%20valorizados%20por%20SustentaFab.',
+                'infraestructura': 'Hola,%20busco%20infraestructura%20durable%20para%20un%20proyecto%20de%20mi%20organizacion.',
+                'b2g': 'Hola,%20quiero%20evaluar%20una%20solucion%20de%20infraestructura%20circular%20para%20un%20proyecto%20municipal.',
+                'esg': 'Hola,%20necesito%20demostrar%20impacto%20y%20trazabilidad%20ESG%20con%20infraestructura%20circular.'
+            };
+            if (messages[type]) {
+                waBtn.href = `https://wa.me/56912345678?text=${messages[type]}`;
+            }
+        }
 
-<!-- BLOG -->
-<section id="blog">
-  <div class="container">
-    <div class="blog-header">
-      <div>
-        <div class="section-label">Blog</div>
-        <h2>Innovación, residuos<br>e <em>impacto real</em></h2>
-      </div>
-      <a href="#" class="blog-link">Ver todos los artículos →</a>
-    </div>
-    <div class="blog-grid">
-      <div class="blog-card">
-        <div class="blog-thumb">
-          <span class="blog-cat">Economía circular</span>
-          <svg viewBox="0 0 48 48"><polyline points="44 12 26 30 18 22 2 36"/><polyline points="32 12 44 12 44 24"/></svg>
-        </div>
-        <div class="blog-body">
-          <div class="blog-date">Junio 2025</div>
-          <h3>Cómo el ciclo MRV cambia el estándar en las licitaciones municipales de infraestructura</h3>
-          <p>Los municipios que exigen métricas verificables de impacto ambiental en sus bases de licitación están redefiniendo el mercado del mobiliario urbano en Chile.</p>
-          <a href="#" class="blog-read">Leer artículo <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="10 4 14 8 10 12"/></svg></a>
-        </div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-thumb">
-          <span class="blog-cat">Tecnología</span>
-          <svg viewBox="0 0 48 48"><rect x="4" y="8" width="40" height="32" rx="2"/><line x1="16" y1="44" x2="32" y2="44"/><line x1="24" y1="40" x2="24" y2="44"/></svg>
-        </div>
-        <div class="blog-body">
-          <div class="blog-date">Mayo 2025</div>
-          <h3>De TRL 3 a TRL 5: nuestra validación de prototipo en entorno real en Quilpué</h3>
-          <p>Documentamos el proceso de iteración rápida que nos permitió pasar de componentes a escala a un paradero sustentable completamente funcional instalado en espacio público.</p>
-          <a href="#" class="blog-read">Leer artículo <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="10 4 14 8 10 12"/></svg></a>
-        </div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-thumb">
-          <span class="blog-cat">ESG · Corporativo</span>
-          <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20"/><path d="M24 4 A20 20 0 1 1 7 35"/><circle cx="24" cy="24" r="8" fill="none"/></svg>
-        </div>
-        <div class="blog-body">
-          <div class="blog-date">Abril 2025</div>
-          <h3>Economía circular cerrada: cuando tu propio residuo se convierte en tu infraestructura</h3>
-          <p>Exploramos cómo las empresas con grandes volúmenes de residuo plástico pueden cerrar su propio ciclo y mejorar simultáneamente sus indicadores de alcance 3 y certificaciones ESG.</p>
-          <a href="#" class="blog-read">Leer artículo <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="10 4 14 8 10 12"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        // 2. Proceso de Diagnóstico
+        function handleDiagnosticSubmit(event) {
+            event.preventDefault();
+            
+            const org = document.getElementById('diag-org').value;
+            const problem = document.getElementById('diag-problem').value;
+            const volume = document.getElementById('diag-volume').value;
+            const name = document.getElementById('lead-name').value;
+            const email = document.getElementById('lead-email').value;
 
-<!-- CONTACTO -->
-<section id="contacto">
-  <div class="container">
-    <div class="contacto-grid">
-      <div>
-        <div class="section-label">Contacto</div>
-        <div class="contact-info">
-          <h3>Hablemos de su proyecto de infraestructura circular</h3>
-          <p>Ya sea una licitación municipal, un contrato corporativo o un piloto de economía circular cerrada, estamos listos para co-diseñar la solución con usted.</p>
-          <div class="contact-detail">
-            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            <div><strong>Raúl Galleguillos</strong>Director y Fundador, SustentaFab</div>
-          </div>
-          <div class="contact-detail">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <div><strong>contacto@sustentafab.cl</strong>Respondemos en menos de 48 horas hábiles</div>
-          </div>
-          <div class="contact-detail">
-            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div><strong>Chile</strong>Proyectos piloto activos en Quilpué y Vitacura</div>
-          </div>
-          <div class="pilots">
-            <h4>Canales de compra pública</h4>
-            <div class="pilot-tags">
-              <span class="pilot-tag">Licitación pública</span>
-              <span class="pilot-tag">Convenio marco</span>
-              <span class="pilot-tag">Compra Ágil</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <form class="contact-form" onsubmit="return false">
-          <div class="form-row">
-            <div>
-              <label for="nombre">Nombre</label>
-              <input type="text" id="nombre" placeholder="Su nombre"/>
-            </div>
-            <div>
-              <label for="org">Organización</label>
-              <input type="text" id="org" placeholder="Municipio / Empresa"/>
-            </div>
-          </div>
-          <div>
-            <label for="email">Correo electrónico</label>
-            <input type="email" id="email" placeholder="correo@organizacion.cl"/>
-          </div>
-          <div>
-            <label for="tipo">Tipo de proyecto</label>
-            <select id="tipo">
-              <option value="">Seleccione una opción</option>
-              <option>Mobiliario urbano (B2G)</option>
-              <option>Infraestructura industrial (B2B)</option>
-              <option>Economía circular cerrada</option>
-              <option>Licitación / Convenio marco</option>
-              <option>Otro</option>
-            </select>
-          </div>
-          <div>
-            <label for="mensaje">Descripción del proyecto</label>
-            <textarea id="mensaje" placeholder="Cuéntenos brevemente qué necesita y en qué plazo..."></textarea>
-          </div>
-          <button type="submit" class="form-submit">Enviar solicitud →</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
+            trackEvent('start_diagnostic', { customer_type: org, problem: problem });
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-brand">sustenta<strong>fab</strong> · Manufactura Circular · Chile</div>
-  <div class="footer-copy">© 2025 SustentaFab. Todos los derechos reservados.</div>
-</footer>
+            const resultDiv = document.getElementById('diagnostic-result');
+            resultDiv.classList.remove('hidden');
 
+            let fitScore = 'Alta Compatibilidad Preliminar';
+            let bgClass = 'bg-emerald-900/40 border-emerald-500 text-emerald-200';
+            let message = 'Tu proyecto combina necesidad de infraestructura o residuo polimérico con un horizonte claro. Se recomienda avanzar a evaluación técnica.';
+
+            if (volume === 'bajo') {
+                fitScore = 'Compatibilidad Etapa Piloto';
+                bgClass = 'bg-amber-900/40 border-amber-500 text-amber-200';
+                message = 'Tu proyecto es ideal para una fase piloto inicial para validar durabilidad y respuesta del material.';
+            }
+
+            resultDiv.className = `mt-6 p-6 rounded-xl border ${bgClass}`;
+            resultDiv.innerHTML = `
+                <h3 class="font-bold text-lg mb-2">Resultado: ${fitScore}</h3>
+                <p class="text-xs mb-4 leading-relaxed">${message}</p>
+                <div class="bg-gray-900/80 p-4 rounded-lg text-xs space-y-1 text-gray-300">
+                    <p><strong>Solicitante:</strong> ${name} (${email})</p>
+                    <p><strong>Organización:</strong> ${org}</p>
+                </div>
+                <button onclick="confirmLead('${fitScore}')" class="mt-4 w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-2.5 rounded-lg text-xs transition">
+                    Confirmar y Solicitar Agendamiento Técnico
+                </button>
+            `;
+
+            trackEvent('complete_diagnostic', { 
+                diagnostic_result: fitScore,
+                customer_type: org,
+                problem: problem
+            });
+        }
+
+        function confirmLead(score) {
+            trackEvent('lead_submit', { diagnostic_result: score });
+            alert('¡Gracias! Un especialista de SustentaFab se pondrá en contacto dentro de las próximas 24 horas hábiles.');
+        }
+
+        // 3. Calculadora Dinámica
+        function calculateImpact() {
+            const kg = parseFloat(document.getElementById('calc-kg').value) || 0;
+            const factor = parseFloat(document.getElementById('calc-type').value) || 1.0;
+
+            const units = Math.round((kg * factor) / 40); // 40kg por unidad de mobiliario promedio
+            const volumeM3 = ((kg / 300)).toFixed(1); // Densidad aparente promedio plástico suelto
+
+            document.getElementById('calc-out-units').innerText = `~ ${units} Unidades`;
+            document.getElementById('calc-out-volume').innerText = `~ ${volumeM3} m³`;
+        }
+    </script>
 </body>
-</html> 
+</html>
+
+
+
