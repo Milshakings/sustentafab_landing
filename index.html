@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <title>SustentaFab — Manufactura Circular</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -20,112 +20,168 @@ html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.65;overflow-x:hidden}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(247,250,248,0.93);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--rule)}
-.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(247,250,248,0.94);backdrop-filter:blur(14px);border-bottom:0.5px solid var(--rule)}
+.nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none}
 .nav-brand{font-size:17px;font-weight:300;color:var(--ink);letter-spacing:-0.3px}
 .nav-brand strong{font-weight:500}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{font-size:13.5px;color:var(--muted);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--green)}
-.nav-cta{font-size:13px;font-weight:500;color:var(--white);background:var(--green);padding:9px 20px;border-radius:var(--radius);text-decoration:none;transition:background .2s}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-wa{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:500;color:var(--green);border:1px solid rgba(15,110,86,0.3);padding:7px 14px;border-radius:var(--radius);text-decoration:none;transition:all .2s}
+.nav-wa:hover{background:var(--green-lt)}
+.nav-wa svg{width:15px;height:15px;fill:var(--green)}
+.nav-cta{font-size:13px;font-weight:500;color:var(--white);background:var(--green);padding:8px 18px;border-radius:var(--radius);text-decoration:none;transition:background .2s}
 .nav-cta:hover{background:var(--green-md)}
 
 /* HERO */
 #hero{min-height:100vh;display:flex;align-items:center;padding:120px 48px 80px;position:relative;overflow:hidden}
-.hero-bg{position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:580px;height:580px;opacity:0.04;pointer-events:none;z-index:0}
+.hero-bg{position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:560px;height:560px;opacity:0.045;pointer-events:none;z-index:0}
 .hero-inner{max-width:var(--max);margin:0 auto;width:100%;position:relative;z-index:1}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:500;letter-spacing:2.5px;color:var(--green);text-transform:uppercase;margin-bottom:28px}
-.hero-eyebrow span{width:28px;height:1px;background:var(--green);display:inline-block}
-h1{font-family:var(--serif);font-size:clamp(40px,5.5vw,66px);font-weight:400;line-height:1.08;color:var(--ink);margin-bottom:20px;letter-spacing:-0.5px;max-width:780px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:500;letter-spacing:2.5px;color:var(--green);text-transform:uppercase;margin-bottom:24px}
+.hero-eyebrow span{width:26px;height:1px;background:var(--green);display:inline-block}
+h1{font-family:var(--serif);font-size:clamp(38px,5.2vw,64px);font-weight:400;line-height:1.08;color:var(--ink);margin-bottom:18px;letter-spacing:-0.5px;max-width:760px}
 h1 em{font-style:italic;color:var(--green)}
-.hero-sub{font-size:17px;color:var(--muted);line-height:1.7;max-width:600px;margin-bottom:16px}
-.hero-trl{display:inline-flex;align-items:center;gap:8px;background:var(--green-lt);border:0.5px solid rgba(15,110,86,0.25);border-radius:4px;padding:6px 14px;font-size:12px;font-weight:500;color:var(--green);margin-bottom:44px}
+.hero-sub{font-size:16.5px;color:var(--muted);line-height:1.7;max-width:580px;margin-bottom:14px}
+.badges-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--green-lt);border:0.5px solid rgba(15,110,86,0.25);border-radius:4px;padding:5px 12px;font-size:11.5px;font-weight:500;color:var(--green)}
+.badge svg{width:12px;height:12px;stroke:var(--green);stroke-width:2;fill:none}
 
-/* SELECTOR PERFIL */
-.perfil-selector{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:0}
-.btn-perfil{
-  display:flex;align-items:center;gap:12px;
-  padding:18px 28px;border-radius:var(--radius);
-  border:1.5px solid var(--rule);background:var(--white);
-  cursor:pointer;transition:all .2s;text-align:left;font-family:var(--sans);
-}
+/* SELECTOR */
+.selector-label{font-size:13px;color:var(--muted);margin-bottom:14px}
+.perfil-selector{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:0}
+.btn-perfil{display:flex;align-items:center;gap:12px;padding:16px 24px;border-radius:var(--radius);border:1.5px solid var(--rule);background:var(--white);cursor:pointer;transition:all .2s;font-family:var(--sans)}
 .btn-perfil:hover{border-color:var(--green);background:var(--green-lt)}
 .btn-perfil.active{border-color:var(--green);background:var(--green);color:var(--white)}
-.btn-perfil .bp-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--green-lt);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+.bp-icon{width:34px;height:34px;border-radius:var(--radius);background:var(--green-lt);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
 .btn-perfil.active .bp-icon{background:rgba(255,255,255,0.15)}
-.btn-perfil .bp-icon svg{width:18px;height:18px;stroke:var(--green);stroke-width:1.5;fill:none;transition:stroke .2s}
+.bp-icon svg{width:17px;height:17px;stroke:var(--green);stroke-width:1.5;fill:none;transition:stroke .2s}
 .btn-perfil.active .bp-icon svg{stroke:var(--white)}
-.bp-label{font-size:14px;font-weight:500;color:var(--ink);transition:color .2s}
+.bp-label{font-size:13.5px;font-weight:500;color:var(--ink);transition:color .2s}
 .btn-perfil.active .bp-label{color:var(--white)}
-.bp-sub{font-size:12px;color:var(--muted);margin-top:2px;transition:color .2s}
+.bp-sub{font-size:11.5px;color:var(--muted);margin-top:2px;transition:color .2s}
 .btn-perfil.active .bp-sub{color:rgba(255,255,255,0.7)}
 
-/* CONTENIDO SEGMENTADO */
-.segmented{display:none;margin-top:56px;animation:fadeUp .5s ease both}
+/* SEGMENTED */
+.segmented{display:none;margin-top:52px;animation:fadeUp .45s ease both}
 .segmented.visible{display:block}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.seg-grid{display:grid;grid-template-columns:1fr 420px;gap:64px;align-items:start}
-
-/* VALUE PROPS */
-.vp-list{display:flex;flex-direction:column;gap:0}
-.vp-item{display:flex;gap:20px;padding:24px 0;border-bottom:0.5px solid var(--rule)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.seg-grid{display:grid;grid-template-columns:1fr 400px;gap:56px;align-items:start}
+.vp-list{display:flex;flex-direction:column}
+.vp-item{display:flex;gap:18px;padding:22px 0;border-bottom:0.5px solid var(--rule)}
 .vp-item:last-child{border-bottom:none}
-.vp-num{font-family:var(--serif);font-size:28px;color:var(--green);opacity:0.3;min-width:32px;line-height:1;padding-top:4px}
-.vp-body h4{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px}
-.vp-body p{font-size:14px;color:var(--muted);line-height:1.65}
-.vp-tag{display:inline-block;margin-top:8px;font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);border-bottom:0.5px solid var(--green-md);padding-bottom:1px}
+.vp-num{font-family:var(--serif);font-size:26px;color:var(--green);opacity:0.28;min-width:30px;line-height:1;padding-top:4px}
+.vp-body h4{font-size:15.5px;font-weight:500;color:var(--ink);margin-bottom:5px}
+.vp-body p{font-size:13.5px;color:var(--muted);line-height:1.65}
+.vp-tag{display:inline-block;margin-top:7px;font-size:10.5px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);border-bottom:0.5px solid var(--green-md);padding-bottom:1px}
 
 /* PANEL LATERAL */
-.side-panel{background:var(--white);border:0.5px solid var(--rule);border-radius:12px;padding:32px;position:sticky;top:80px}
-.side-panel h3{font-family:var(--serif);font-size:22px;color:var(--ink);margin-bottom:20px;line-height:1.2}
-.pilot-box{background:var(--green-lt);border:0.5px solid rgba(15,110,86,0.2);border-radius:var(--radius);padding:20px;margin-bottom:20px}
-.pilot-box .pb-label{font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:8px}
-.pilot-box .pb-val{font-family:var(--serif);font-size:28px;color:var(--green);line-height:1;margin-bottom:4px}
-.pilot-box .pb-desc{font-size:12px;color:var(--muted)}
-.pilot-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
-.warn-box{background:#FFF8E7;border:0.5px solid #E5C84A;border-radius:var(--radius);padding:16px;margin-bottom:20px}
-.warn-box p{font-size:12px;color:#7A6020;line-height:1.55}
+.side-panel{background:var(--white);border:0.5px solid var(--rule);border-radius:12px;padding:28px;position:sticky;top:76px}
+.side-panel h3{font-family:var(--serif);font-size:20px;color:var(--ink);margin-bottom:18px;line-height:1.2}
+.pilot-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.pilot-box{background:var(--green-lt);border:0.5px solid rgba(15,110,86,0.2);border-radius:var(--radius);padding:16px}
+.pb-label{font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+.pb-val{font-family:var(--serif);font-size:26px;color:var(--green);line-height:1;margin-bottom:3px}
+.pb-desc{font-size:11.5px;color:var(--muted)}
+.pilot-full{margin-bottom:14px}
+.warn-box{background:#FFF8E7;border:0.5px solid #E5C84A;border-radius:var(--radius);padding:13px 15px;margin-bottom:14px}
+.warn-box p{font-size:11.5px;color:#7A6020;line-height:1.55}
 .warn-box strong{color:#5A4510}
-.side-cta{display:block;width:100%;padding:14px;background:var(--green);color:var(--white);font-size:14px;font-weight:500;text-align:center;border-radius:var(--radius);text-decoration:none;border:none;cursor:pointer;font-family:var(--sans);transition:background .2s}
-.side-cta:hover{background:var(--green-md)}
-.side-ghost{display:block;width:100%;padding:12px;border:0.5px solid var(--green);color:var(--green);font-size:13px;font-weight:400;text-align:center;border-radius:var(--radius);text-decoration:none;background:none;cursor:pointer;font-family:var(--sans);margin-top:10px;transition:all .2s}
-.side-ghost:hover{background:var(--green-lt)}
 
-/* SECCIÓN SHARED */
-section{padding:96px 48px}
+/* CTAs panel */
+.cta-stack{display:flex;flex-direction:column;gap:8px}
+.side-cta{display:block;width:100%;padding:13px;background:var(--green);color:var(--white);font-size:13.5px;font-weight:500;text-align:center;border-radius:var(--radius);text-decoration:none;border:none;cursor:pointer;font-family:var(--sans);transition:background .2s}
+.side-cta:hover{background:var(--green-md)}
+.side-wa{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:11px;border:1px solid #25D366;color:#128C4E;font-size:13px;font-weight:500;text-align:center;border-radius:var(--radius);text-decoration:none;background:none;cursor:pointer;font-family:var(--sans);transition:all .2s}
+.side-wa:hover{background:#F0FFF4}
+.side-wa svg{width:16px;height:16px;fill:#25D366}
+.side-cal{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;padding:11px;border:0.5px solid var(--green);color:var(--green);font-size:13px;font-weight:400;text-align:center;border-radius:var(--radius);text-decoration:none;background:none;cursor:pointer;font-family:var(--sans);transition:all .2s}
+.side-cal:hover{background:var(--green-lt)}
+.side-cal svg{width:14px;height:14px;stroke:var(--green);stroke-width:1.5;fill:none}
+.side-dl{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;padding:10px;color:var(--muted);font-size:12px;text-align:center;border-radius:var(--radius);text-decoration:none;background:none;cursor:pointer;font-family:var(--sans);transition:all .2s;border:0.5px solid var(--rule)}
+.side-dl:hover{background:var(--bg);color:var(--ink)}
+.side-dl svg{width:13px;height:13px;stroke:var(--muted);stroke-width:1.5;fill:none}
+
+/* SECCIÓN GENERAL */
+section{padding:92px 48px}
 .container{max-width:var(--max);margin:0 auto}
-.section-label{font-size:11px;font-weight:500;letter-spacing:2.5px;color:var(--green);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.section-label::before{content:'';width:24px;height:1px;background:var(--green);display:inline-block}
-h2{font-family:var(--serif);font-size:clamp(30px,4vw,46px);font-weight:400;line-height:1.12;color:var(--ink);margin-bottom:20px;letter-spacing:-0.3px}
+.section-label{font-size:11px;font-weight:500;letter-spacing:2.5px;color:var(--green);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.section-label::before{content:'';width:22px;height:1px;background:var(--green);display:inline-block}
+h2{font-family:var(--serif);font-size:clamp(28px,3.8vw,44px);font-weight:400;line-height:1.12;color:var(--ink);margin-bottom:18px;letter-spacing:-0.3px}
 h2 em{font-style:italic;color:var(--green)}
-.section-intro{font-size:17px;color:var(--muted);max-width:560px;line-height:1.7}
+.section-intro{font-size:16px;color:var(--muted);max-width:540px;line-height:1.7}
+
+/* PRECIOS */
+#precios{background:var(--white)}
+.precios-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px}
+.precio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:0.5px solid var(--rule);border-radius:12px;overflow:hidden;margin-bottom:32px}
+.precio-card{background:var(--white);padding:32px 28px;transition:background .2s}
+.precio-card:hover{background:var(--green-lt)}
+.precio-badge{font-size:10px;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;color:var(--green);background:var(--green-lt);display:inline-block;padding:3px 9px;border-radius:3px;margin-bottom:14px}
+.precio-card h3{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:8px;line-height:1.3}
+.precio-val{font-family:var(--serif);font-size:32px;color:var(--green);line-height:1;margin-bottom:3px}
+.precio-clp{font-size:12px;color:var(--muted);margin-bottom:14px}
+.precio-card ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.precio-card ul li{font-size:13px;color:var(--muted);padding-left:18px;position:relative;line-height:1.5}
+.precio-card ul li::before{content:'→';position:absolute;left:0;color:var(--green);font-size:11px;top:2px}
+.tco-box{background:var(--green-lt);border:0.5px solid rgba(15,110,86,0.2);border-radius:var(--radius);padding:20px 24px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.tco-box .tco-stat{text-align:center;min-width:80px}
+.tco-box .tco-num{font-family:var(--serif);font-size:28px;color:var(--green);line-height:1}
+.tco-box .tco-lbl{font-size:11px;color:var(--muted);margin-top:3px}
+.tco-box .tco-divider{width:1px;height:48px;background:rgba(15,110,86,0.2)}
+.tco-box .tco-text{font-size:13px;color:var(--ink-2);line-height:1.6;flex:1}
 
 /* EVIDENCIA */
-#evidencia{background:var(--white)}
-.ev-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;flex-wrap:wrap;gap:24px}
-.ev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:0.5px solid var(--rule);border-radius:12px;overflow:hidden}
-.ev-card{background:var(--white);padding:36px 32px}
-.ev-card h3{font-size:17px;font-weight:500;color:var(--ink);margin-bottom:10px;line-height:1.3}
-.ev-card p{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:16px}
-.ev-stat{font-family:var(--serif);font-size:38px;color:var(--green);line-height:1;margin-bottom:4px}
-.ev-stat-label{font-size:12px;color:var(--muted);letter-spacing:0.2px}
-.ev-badge{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:11px;font-weight:500;color:var(--green);background:var(--green-lt);padding:4px 10px;border-radius:3px}
-.ev-badge svg{width:12px;height:12px;stroke:var(--green);stroke-width:2;fill:none}
-.limitation-box{margin-top:40px;background:#F7FAF8;border:0.5px solid var(--rule);border-radius:var(--radius);padding:24px 28px;display:flex;gap:20px;align-items:flex-start}
-.limitation-box svg{width:20px;height:20px;stroke:var(--muted);stroke-width:1.5;fill:none;flex-shrink:0;margin-top:2px}
-.limitation-box p{font-size:13px;color:var(--muted);line-height:1.65}
+#evidencia{background:var(--bg)}
+.ev-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px}
+.ev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:0.5px solid var(--rule);border-radius:12px;overflow:hidden;margin-bottom:28px}
+.ev-card{background:var(--white);padding:32px 28px}
+.ev-stat{font-family:var(--serif);font-size:36px;color:var(--green);line-height:1;margin-bottom:4px}
+.ev-stat-lbl{font-size:12px;color:var(--muted);margin-bottom:12px}
+.ev-card h3{font-size:15.5px;font-weight:500;color:var(--ink);margin-bottom:8px}
+.ev-card p{font-size:13px;color:var(--muted);line-height:1.65}
+.ev-badge{display:inline-flex;align-items:center;gap:5px;margin-top:12px;font-size:11px;font-weight:500;color:var(--green);background:var(--green-lt);padding:4px 10px;border-radius:3px}
+.ev-badge svg{width:11px;height:11px;stroke:var(--green);stroke-width:2;fill:none}
+
+/* FOTOS PILOTOS */
+.fotos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.foto-card{background:var(--white);border:0.5px solid var(--rule);border-radius:10px;overflow:hidden}
+.foto-placeholder{height:180px;background:linear-gradient(135deg,var(--green-lt) 0%,rgba(15,110,86,0.08) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative}
+.foto-placeholder svg{width:36px;height:36px;stroke:var(--green);stroke-width:1;fill:none;opacity:0.5}
+.foto-placeholder .foto-tag{position:absolute;top:12px;left:12px;font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;background:var(--green);color:var(--white);padding:3px 9px;border-radius:3px}
+.foto-placeholder .upload-hint{font-size:11px;color:var(--muted);text-align:center;padding:0 16px}
+.foto-body{padding:16px 18px}
+.foto-body h4{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.foto-body p{font-size:12px;color:var(--muted);line-height:1.55}
+
+/* TESTIMONIOS */
+.testimonios-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px}
+.testimonio-card{background:var(--white);border:0.5px solid var(--rule);border-radius:10px;padding:24px 26px}
+.t-quote{font-size:32px;color:var(--green);line-height:1;margin-bottom:8px;font-family:var(--serif);opacity:0.4}
+.t-text{font-size:14px;color:var(--ink-2);line-height:1.65;margin-bottom:16px;font-style:italic}
+.t-author{display:flex;align-items:center;gap:12px}
+.t-avatar{width:36px;height:36px;border-radius:50%;background:var(--green-lt);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:14px;color:var(--green);flex-shrink:0;font-weight:500}
+.t-name{font-size:13px;font-weight:500;color:var(--ink)}
+.t-role{font-size:11.5px;color:var(--muted);margin-top:2px}
+.t-pending{background:var(--bg);border:0.5px dashed rgba(15,110,86,0.3);border-radius:10px;padding:24px 26px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;min-height:140px}
+.t-pending svg{width:24px;height:24px;stroke:var(--muted);stroke-width:1.2;fill:none;opacity:0.5}
+.t-pending p{font-size:12.5px;color:var(--muted);line-height:1.55}
+
+.limitation-box{background:var(--white);border:0.5px solid var(--rule);border-radius:var(--radius);padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+.limitation-box svg{width:18px;height:18px;stroke:var(--muted);stroke-width:1.5;fill:none;flex-shrink:0;margin-top:3px}
+.limitation-box p{font-size:12.5px;color:var(--muted);line-height:1.65}
 .limitation-box strong{color:var(--ink)}
 
-/* PROCESO MRV */
-#proceso{background:var(--bg)}
-.proceso-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:56px}
-.paso{display:flex;gap:24px;padding:26px 0;border-bottom:0.5px solid var(--rule)}
+/* PROCESO */
+#proceso{background:var(--white)}
+.proceso-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:52px}
+.paso{display:flex;gap:20px;padding:22px 0;border-bottom:0.5px solid var(--rule)}
 .paso:last-child{border-bottom:none}
-.paso-num{font-family:var(--serif);font-size:28px;color:var(--green);opacity:0.25;min-width:36px;line-height:1;padding-top:4px}
-.paso-body h4{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px}
-.paso-body p{font-size:14px;color:var(--muted);line-height:1.65}
-.mrv-visual{background:var(--white);border:0.5px solid var(--rule);border-radius:12px;padding:40px;text-align:center}
-.mrv-visual p{font-size:13px;color:var(--muted);max-width:240px;margin:24px auto 0;line-height:1.6}
+.paso-num{font-family:var(--serif);font-size:26px;color:var(--green);opacity:0.25;min-width:34px;line-height:1;padding-top:3px}
+.paso-body h4{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:5px}
+.paso-body p{font-size:13px;color:var(--muted);line-height:1.65}
+.mrv-visual{background:var(--bg);border:0.5px solid var(--rule);border-radius:12px;padding:36px;text-align:center}
+.mrv-visual p{font-size:13px;color:var(--muted);max-width:230px;margin:20px auto 0;line-height:1.6}
 
 /* NOSOTROS */
 #nosotros{background:var(--ink)}
@@ -133,274 +189,308 @@ h2 em{font-style:italic;color:var(--green)}
 #nosotros .section-label::before{background:var(--green-md)}
 #nosotros h2{color:var(--white)}
 #nosotros h2 em{color:var(--green-md)}
-.nos-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.nos-left p{font-size:16px;color:rgba(255,255,255,0.5);line-height:1.7;max-width:460px;margin-bottom:16px}
-.fundador{margin-top:36px;display:flex;align-items:center;gap:16px;padding-top:28px;border-top:0.5px solid rgba(255,255,255,0.1)}
-.f-avatar{width:48px;height:48px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;color:var(--white);flex-shrink:0}
-.f-name{font-size:15px;font-weight:500;color:var(--white)}
-.f-role{font-size:12px;color:rgba(255,255,255,0.35);margin-top:2px}
-.nos-right{display:flex;flex-direction:column;gap:16px}
-.valor-card{background:rgba(255,255,255,0.04);border:0.5px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:22px 26px}
-.valor-card h4{font-size:13px;font-weight:500;color:var(--green-md);margin-bottom:7px;letter-spacing:0.2px}
-.valor-card p{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.65}
+.nos-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.nos-left p{font-size:15.5px;color:rgba(255,255,255,0.48);line-height:1.7;max-width:440px;margin-bottom:14px}
+.nos-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.nos-badge{font-size:11px;font-weight:500;color:rgba(255,255,255,0.6);border:0.5px solid rgba(255,255,255,0.15);padding:5px 12px;border-radius:3px}
+.fundador{margin-top:32px;display:flex;align-items:center;gap:14px;padding-top:24px;border-top:0.5px solid rgba(255,255,255,0.1)}
+.f-av{width:46px;height:46px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:17px;color:var(--white);flex-shrink:0}
+.f-name{font-size:14px;font-weight:500;color:var(--white)}
+.f-role{font-size:11.5px;color:rgba(255,255,255,0.35);margin-top:2px}
+.nos-right{display:flex;flex-direction:column;gap:14px}
+.valor-card{background:rgba(255,255,255,0.04);border:0.5px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:20px 24px}
+.valor-card h4{font-size:13px;font-weight:500;color:var(--green-md);margin-bottom:6px}
+.valor-card p{font-size:13px;color:rgba(255,255,255,0.38);line-height:1.65}
 
 /* BLOG */
 #blog{background:var(--bg)}
-.blog-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;flex-wrap:wrap;gap:20px}
+.blog-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:18px}
 .blog-lnk{font-size:13px;color:var(--green);text-decoration:none;border-bottom:0.5px solid var(--green);padding-bottom:1px}
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.blog-card{background:var(--white);border:0.5px solid var(--rule);border-radius:12px;overflow:hidden;transition:transform .25s,box-shadow .25s}
-.blog-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(15,110,86,0.08)}
-.blog-thumb{height:160px;background:var(--green-lt);display:flex;align-items:center;justify-content:center;position:relative}
-.blog-thumb svg{width:40px;height:40px;stroke:var(--green);stroke-width:1;fill:none;opacity:0.4}
-.blog-cat{position:absolute;top:14px;left:14px;font-size:10px;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;background:var(--green);color:var(--white);padding:4px 10px;border-radius:3px}
-.blog-body{padding:24px}
-.blog-date{font-size:12px;color:var(--muted);margin-bottom:8px}
-.blog-card h3{font-size:15px;font-weight:500;color:var(--ink);line-height:1.4;margin-bottom:10px}
-.blog-card p{font-size:13px;color:var(--muted);line-height:1.6}
-.blog-read{display:inline-flex;align-items:center;gap:5px;margin-top:16px;font-size:13px;color:var(--green);font-weight:500;text-decoration:none}
-.blog-read svg{width:13px;height:13px;stroke:var(--green);stroke-width:2;transition:transform .2s}
-.blog-read:hover svg{transform:translateX(4px)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.blog-card{background:var(--white);border:0.5px solid var(--rule);border-radius:10px;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.blog-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(15,110,86,0.07)}
+.blog-thumb{height:148px;background:var(--green-lt);display:flex;align-items:center;justify-content:center;position:relative}
+.blog-thumb svg{width:36px;height:36px;stroke:var(--green);stroke-width:1;fill:none;opacity:0.4}
+.blog-cat{position:absolute;top:12px;left:12px;font-size:10px;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;background:var(--green);color:var(--white);padding:3px 9px;border-radius:3px}
+.blog-body{padding:22px}
+.blog-date{font-size:11.5px;color:var(--muted);margin-bottom:8px}
+.blog-card h3{font-size:14.5px;font-weight:500;color:var(--ink);line-height:1.4;margin-bottom:9px}
+.blog-card p{font-size:12.5px;color:var(--muted);line-height:1.6}
+.blog-read{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:12.5px;color:var(--green);font-weight:500;text-decoration:none}
+.blog-read svg{width:12px;height:12px;stroke:var(--green);stroke-width:2;transition:transform .2s}
+.blog-read:hover svg{transform:translateX(3px)}
 
-/* CONTACTO */
-#contacto{background:var(--white)}
-.contacto-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.c-info h3{font-family:var(--serif);font-size:26px;color:var(--ink);margin-bottom:14px;line-height:1.2}
-.c-info p{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:32px}
-.c-detail{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px}
-.c-detail svg{width:17px;height:17px;stroke:var(--green);stroke-width:1.5;fill:none;flex-shrink:0;margin-top:3px}
-.c-detail div{font-size:14px;color:var(--muted);line-height:1.5}
+/* DIAGNÓSTICO / CONTACTO */
+#diagnostico{background:var(--white)}
+.diag-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.diag-info h3{font-family:var(--serif);font-size:26px;color:var(--ink);margin-bottom:14px;line-height:1.2}
+.diag-info p{font-size:14.5px;color:var(--muted);line-height:1.7;margin-bottom:28px}
+.c-detail{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px}
+.c-detail svg{width:16px;height:16px;stroke:var(--green);stroke-width:1.5;fill:none;flex-shrink:0;margin-top:3px}
+.c-detail div{font-size:13.5px;color:var(--muted);line-height:1.5}
 .c-detail strong{color:var(--ink);font-weight:500;display:block}
-.pilots-box{margin-top:36px;padding-top:28px;border-top:0.5px solid var(--rule)}
-.pilots-box h4{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-.p-tags{display:flex;gap:8px;flex-wrap:wrap}
-.p-tag{font-size:12px;color:var(--green);border:0.5px solid var(--green);padding:5px 12px;border-radius:3px}
-.contact-form{display:flex;flex-direction:column;gap:14px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-label{font-size:13px;font-weight:500;color:var(--ink-2);display:block;margin-bottom:5px}
-input,select,textarea{width:100%;padding:11px 14px;border:0.5px solid rgba(15,110,86,0.25);border-radius:var(--radius);font-family:var(--sans);font-size:14px;color:var(--ink);background:var(--bg);transition:border-color .2s;outline:none}
+.contact-ctas{display:flex;flex-direction:column;gap:10px;margin-top:28px}
+.cc-wa{display:flex;align-items:center;gap:9px;padding:13px 18px;background:#F0FFF4;border:1px solid #25D366;border-radius:var(--radius);text-decoration:none;font-size:14px;font-weight:500;color:#128C4E;transition:all .2s}
+.cc-wa:hover{background:#DCF8E8}
+.cc-wa svg{width:18px;height:18px;fill:#25D366}
+.cc-cal{display:flex;align-items:center;gap:9px;padding:12px 18px;border:0.5px solid var(--green);border-radius:var(--radius);text-decoration:none;font-size:14px;font-weight:400;color:var(--green);transition:all .2s}
+.cc-cal:hover{background:var(--green-lt)}
+.cc-cal svg{width:16px;height:16px;stroke:var(--green);stroke-width:1.5;fill:none}
+.cc-dl{display:flex;align-items:center;gap:9px;padding:11px 18px;border:0.5px solid var(--rule);border-radius:var(--radius);text-decoration:none;font-size:13.5px;font-weight:400;color:var(--muted);transition:all .2s}
+.cc-dl:hover{background:var(--bg);color:var(--ink)}
+.cc-dl svg{width:15px;height:15px;stroke:var(--muted);stroke-width:1.5;fill:none}
+.pilots-box{margin-top:28px;padding-top:22px;border-top:0.5px solid var(--rule)}
+.pilots-box h4{font-size:10.5px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.p-tags{display:flex;gap:7px;flex-wrap:wrap}
+.p-tag{font-size:11.5px;color:var(--green);border:0.5px solid var(--green);padding:4px 11px;border-radius:3px}
+
+/* FORMULARIO */
+.diag-form{background:var(--bg);border:0.5px solid var(--rule);border-radius:12px;padding:32px}
+.diag-form h4{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px}
+.diag-form .form-note{font-size:12.5px;color:var(--muted);margin-bottom:22px}
+.contact-form{display:flex;flex-direction:column;gap:13px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+label{font-size:12.5px;font-weight:500;color:var(--ink-2);display:block;margin-bottom:4px}
+input,select,textarea{width:100%;padding:10px 13px;border:0.5px solid rgba(15,110,86,0.25);border-radius:var(--radius);font-family:var(--sans);font-size:13.5px;color:var(--ink);background:var(--white);transition:border-color .2s;outline:none}
 input:focus,select:focus,textarea:focus{border-color:var(--green)}
-textarea{resize:vertical;min-height:110px}
-.form-submit{font-size:14px;font-weight:500;color:var(--white);background:var(--green);padding:14px 28px;border-radius:var(--radius);border:none;cursor:pointer;transition:background .2s;font-family:var(--sans)}
+textarea{resize:vertical;min-height:100px}
+.form-submit{font-size:14px;font-weight:500;color:var(--white);background:var(--green);padding:13px 24px;border-radius:var(--radius);border:none;cursor:pointer;transition:background .2s;font-family:var(--sans);width:100%}
 .form-submit:hover{background:var(--green-md)}
 
+/* FLOATING WA */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:200;display:flex;align-items:center;gap:10px;background:#25D366;color:var(--white);padding:12px 18px;border-radius:40px;text-decoration:none;font-size:14px;font-weight:500;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:all .2s}
+.wa-float:hover{background:#1EBE5A;transform:translateY(-2px);box-shadow:0 6px 28px rgba(37,211,102,0.5)}
+.wa-float svg{width:20px;height:20px;fill:var(--white)}
+
 /* FOOTER */
-footer{background:var(--ink-2);padding:36px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+footer{background:var(--ink-2);padding:32px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .f-brand{font-size:14px;font-weight:300;color:rgba(255,255,255,0.4)}
 .f-brand strong{font-weight:500;color:rgba(255,255,255,0.7)}
-.f-copy{font-size:12px;color:rgba(255,255,255,0.22)}
+.f-copy{font-size:11.5px;color:rgba(255,255,255,0.22)}
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  nav{padding:0 20px}
-  .nav-links{display:none}
-  section,#hero{padding:80px 20px 56px}
-  #hero{padding-top:100px}
-  .seg-grid,.proceso-grid,.nos-grid,.contacto-grid{grid-template-columns:1fr;gap:40px}
-  .ev-grid,.blog-grid{grid-template-columns:1fr}
+  nav{padding:0 18px}
+  .nav-links,.nav-wa{display:none}
+  section,#hero{padding:72px 20px 52px}
+  #hero{padding-top:96px}
+  .seg-grid,.proceso-grid,.nos-grid,.diag-grid{grid-template-columns:1fr;gap:36px}
+  .ev-grid,.precio-grid,.blog-grid,.fotos-grid{grid-template-columns:1fr}
+  .testimonios-grid{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
-  footer{padding:28px 20px}
+  footer{padding:24px 18px}
   .side-panel{position:static}
+  .wa-float .wa-label{display:none}
+  .wa-float{padding:13px}
+  .wa-float{border-radius:50%;width:52px;height:52px;justify-content:center}
 }
 </style>
 </head>
 <body>
 
+<!-- FLOATING WA -->
+<a href="https://wa.me/56912345678?text=Hola%20Raúl%2C%20vi%20SustentaFab%20y%20quiero%20hablar%20sobre%20un%20piloto" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-label">WhatsApp</span>
+</a>
+
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
       <defs>
-        <marker id="navArr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <marker id="nA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
           <path d="M2 1L8 5L2 9" fill="none" stroke="#0F6E56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </marker>
       </defs>
-      <circle cx="17" cy="17" r="14" stroke="#0F6E56" stroke-width="0.5" opacity="0.2"/>
-      <path d="M17,3 A14,14 0 1,1 5,24" fill="none" stroke="#0F6E56" stroke-width="2.5" stroke-linecap="round" marker-end="url(#navArr)"/>
-      <circle cx="17" cy="17" r="5.5" fill="none" stroke="#0F6E56" stroke-width="1.2" opacity="0.5"/>
-      <circle cx="17" cy="17" r="2.5" fill="#0F6E56"/>
+      <circle cx="16" cy="16" r="13" stroke="#0F6E56" stroke-width="0.5" opacity="0.2"/>
+      <path d="M16,3 A13,13 0 1,1 4.5,22.5" fill="none" stroke="#0F6E56" stroke-width="2.5" stroke-linecap="round" marker-end="url(#nA)"/>
+      <circle cx="16" cy="16" r="5" fill="none" stroke="#0F6E56" stroke-width="1.2" opacity="0.5"/>
+      <circle cx="16" cy="16" r="2.2" fill="#0F6E56"/>
     </svg>
     <span class="nav-brand">sustenta<strong>fab</strong></span>
   </a>
   <ul class="nav-links">
+    <li><a href="#precios">Precios</a></li>
     <li><a href="#evidencia">Evidencia</a></li>
     <li><a href="#proceso">Metodología</a></li>
     <li><a href="#nosotros">Nosotros</a></li>
     <li><a href="#blog">Blog</a></li>
   </ul>
-  <a href="#contacto" class="nav-cta">Iniciar piloto</a>
+  <div class="nav-right">
+    <a href="https://wa.me/56912345678?text=Hola%20Raúl%2C%20quiero%20hablar%20de%20un%20piloto%20SustentaFab" target="_blank" class="nav-wa">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a href="#diagnostico" class="nav-cta">Solicitar diagnóstico</a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
   <svg class="hero-bg" viewBox="0 0 400 400" fill="none" aria-hidden="true">
-    <circle cx="200" cy="200" r="180" stroke="#0F6E56" stroke-width="0.5"/>
-    <circle cx="200" cy="200" r="130" stroke="#0F6E56" stroke-width="0.5"/>
-    <circle cx="200" cy="200" r="80" stroke="#0F6E56" stroke-width="0.5"/>
-    <circle cx="200" cy="200" r="30" stroke="#0F6E56" stroke-width="0.5"/>
-    <line x1="200" y1="20" x2="200" y2="380" stroke="#0F6E56" stroke-width="0.3"/>
-    <line x1="20" y1="200" x2="380" y2="200" stroke="#0F6E56" stroke-width="0.3"/>
+    <circle cx="200" cy="200" r="178" stroke="#0F6E56" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="128" stroke="#0F6E56" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="78" stroke="#0F6E56" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="28" stroke="#0F6E56" stroke-width="0.5"/>
+    <line x1="200" y1="22" x2="200" y2="378" stroke="#0F6E56" stroke-width="0.3"/>
+    <line x1="22" y1="200" x2="378" y2="200" stroke="#0F6E56" stroke-width="0.3"/>
   </svg>
   <div class="hero-inner">
     <div class="hero-eyebrow"><span></span>Manufactura circular · Chile · Pilotos activos</div>
-    <h1>Residuo plástico convertido en <em>infraestructura durable</em> y trazable</h1>
-    <p class="hero-sub">Diseñamos y fabricamos mobiliario urbano e infraestructura mediante impresión 3D a gran escala con plástico 100% reciclado — con métricas de impacto verificables para municipios y empresas.</p>
-    <div class="hero-trl">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#0F6E56" stroke-width="1.2"/><path d="M7 4v4l2.5 1.5" stroke="#0F6E56" stroke-width="1.2" stroke-linecap="round"/></svg>
-      TRL 5 — Validado en entorno real · Pilotos en Quilpué y Vitacura
+    <h1>Residuo plástico convertido en <em>infraestructura durable,</em> inclusiva y trazable</h1>
+    <p class="hero-sub">Impresión 3D a gran escala con plástico 100% reciclado. Mobiliario urbano para adultos mayores, infraestructura ESG para empresas — con métricas MRV auditables en cada entrega.</p>
+    <div class="badges-row">
+      <span class="badge"><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke-width="1.2"/><path d="M7 4v4l2 1.2" stroke-width="1.2" stroke-linecap="round"/></svg>TRL 5 · Validado en terreno</span>
+      <span class="badge"><svg viewBox="0 0 14 14"><polyline points="2 7 6 11 12 3" stroke-width="1.5"/></svg>Pilotos en Quilpué y Vitacura</span>
+      <span class="badge"><svg viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" rx="1" stroke-width="1.2"/><line x1="5" y1="7" x2="9" y2="7" stroke-width="1.2"/><line x1="7" y1="5" x2="7" y2="9" stroke-width="1.2"/></svg>Residencia Fundación Chile · USACH LEMAA</span>
+      <span class="badge"><svg viewBox="0 0 14 14"><path d="M7 2l1.5 3h3.5l-2.8 2.1 1 3.3L7 8.5l-3.2 1.9 1-3.3L2 5h3.5z" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>66% ahorro en mantención · TCO 18–24 meses</span>
     </div>
-
-    <!-- SELECTOR -->
-    <p style="font-size:13px;color:var(--muted);margin-bottom:16px;letter-spacing:0.3px;">¿Cuál es su perfil? Le mostramos lo que le importa a usted:</p>
+    <p class="selector-label">¿Cuál es su perfil? Le mostramos lo que le importa:</p>
     <div class="perfil-selector">
       <button class="btn-perfil" onclick="selectPerfil('municipio')" id="btn-municipio">
-        <div class="bp-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="bp-label">Soy de un municipio</div>
-          <div class="bp-sub">Encargado/a ambiental, obras o social</div>
-        </div>
+        <div class="bp-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div><div class="bp-label">Soy de un municipio</div><div class="bp-sub">Encargado/a ambiental, obras o social</div></div>
       </button>
       <button class="btn-perfil" onclick="selectPerfil('empresa')" id="btn-empresa">
-        <div class="bp-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-        </div>
-        <div>
-          <div class="bp-label">Soy de una empresa</div>
-          <div class="bp-sub">ESG, sostenibilidad o economía circular</div>
-        </div>
+        <div class="bp-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+        <div><div class="bp-label">Soy de una empresa</div><div class="bp-sub">ESG, sostenibilidad o economía circular</div></div>
       </button>
     </div>
 
-    <!-- CONTENIDO MUNICIPIO -->
+    <!-- MUNICIPIO -->
     <div class="segmented" id="seg-municipio">
       <div class="seg-grid">
         <div class="vp-list">
-          <div class="vp-item">
-            <div class="vp-num">01</div>
-            <div class="vp-body">
-              <h4>Mobiliario urbano inclusivo para adultos mayores</h4>
-              <p>Bancas con respaldo alto, apoyabrazos ergonómicos, superficie antideslizante y espacio para andadores o sillas de ruedas. Diseñadas para plazas, sedes CEAM y rutas peatonales. Durabilidad superior al mobiliario tradicional sin mantención frecuente.</p>
-              <span class="vp-tag">Accesibilidad universal</span>
-            </div>
-          </div>
-          <div class="vp-item">
-            <div class="vp-num">02</div>
-            <div class="vp-body">
-              <h4>Trazabilidad para sus metas climáticas y Ley REP</h4>
-              <p>Cada producto entrega un reporte de impacto auditable: toneladas de plástico valorizadas, CO₂e evitado y relleno sanitario no utilizado. Compatible con HuellaChile, balances ESG y bases de licitación con criterios ambientales.</p>
-              <span class="vp-tag">MRV · HuellaChile</span>
-            </div>
-          </div>
-          <div class="vp-item">
-            <div class="vp-num">03</div>
-            <div class="vp-body">
-              <h4>Acceso por Compra Ágil, convenio marco o licitación</h4>
-              <p>Operamos con todos los mecanismos de Mercado Público. El piloto recomendado es de 10–20 unidades en 2–3 sedes o plazas de alto uso, con medición de desempeño a 6 y 12 meses antes de escalar.</p>
-              <span class="vp-tag">Compra Ágil · Licitación</span>
-            </div>
-          </div>
-          <div class="vp-item">
-            <div class="vp-num">04</div>
-            <div class="vp-body">
-              <h4>Componente social medible</h4>
-              <p>El proceso puede incluir a adultos mayores activos en actividades de educación ambiental y cuidado del mobiliario — reforzando sentido de pertenencia y reduciendo vandalismo. Medimos uso real, satisfacción ciudadana e impacto social junto al ambiental.</p>
-              <span class="vp-tag">Impacto social · Programa AM</span>
-            </div>
-          </div>
+          <div class="vp-item"><div class="vp-num">01</div><div class="vp-body"><h4>Mobiliario inclusivo para adultos mayores — desde 12 UF</h4><p>Escaños climáticos con respaldo alto, apoyabrazos ergonómicos (adaptados a artrosis), superficie atérmica antideslizante y espacio para andadores. Temperatura superficial hasta 8°C menor al hormigón. En Quilpué, adultos mayores crecieron 149% — su espacio público lo debe reflejar.</p><span class="vp-tag">Accesibilidad universal · Adultos mayores</span></div></div>
+          <div class="vp-item"><div class="vp-num">02</div><div class="vp-body"><h4>66% menos gasto en mantención · TCO positivo en 18–24 meses</h4><p>Sin pintura, sin barniz, sin corrosión marina. Vida útil certificada >15 años (3x la madera). El costo inicial es equivalente al mobiliario tradicional — pero el ahorro operacional amortiza la inversión antes de los 2 años.</p><span class="vp-tag">OpEx · TCO · Presupuesto municipal</span></div></div>
+          <div class="vp-item"><div class="vp-num">03</div><div class="vp-body"><h4>Reporte MRV para Ley REP, HuellaChile y metas climáticas</h4><p>Cada producto entrega certificado digital con kg de plástico desviado de vertedero, CO₂e evitado georreferenciado y trazabilidad por lote. Compatible con SECPLA, balances ESG y bases de licitación con criterios ambientales.</p><span class="vp-tag">MRV · Ley REP 20.920 · HuellaChile</span></div></div>
+          <div class="vp-item"><div class="vp-num">04</div><div class="vp-body"><h4>Co-diseño con la comunidad — vandalismo -30% a -60%</h4><p>Talleres de Design Thinking vinculantes con adultos mayores y dirigentes vecinales. La comunidad que co-diseña cuida y vigila el activo. Piloto recomendado: 10–20 unidades en sedes AM + plaza, con seguimiento a 6 y 12 meses.</p><span class="vp-tag">Co-diseño · Paz social · Arraigo</span></div></div>
         </div>
         <div class="side-panel">
           <h3>Piloto municipal recomendado</h3>
           <div class="pilot-row">
-            <div class="pilot-box">
-              <div class="pb-label">Unidades</div>
-              <div class="pb-val">10–20</div>
-              <div class="pb-desc">bancas o módulos en sedes AM + plaza</div>
-            </div>
-            <div class="pilot-box">
-              <div class="pb-label">Plástico valorizado</div>
-              <div class="pb-val">~800 kg</div>
-              <div class="pb-desc">evitado de relleno sanitario</div>
-            </div>
+            <div class="pilot-box"><div class="pb-label">Unidades</div><div class="pb-val">10–20</div><div class="pb-desc">escaños + refugio piloto</div></div>
+            <div class="pilot-box"><div class="pb-label">Plazo</div><div class="pb-val">60–90</div><div class="pb-desc">días desde aprobación BNUP</div></div>
           </div>
-          <div class="pilot-box" style="margin-bottom:16px">
-            <div class="pb-label">Seguimiento</div>
-            <div class="pb-val" style="font-size:20px">6 y 12 meses</div>
-            <div class="pb-desc">estado físico · uso real · percepción ciudadana · impacto ESG</div>
+          <div class="pilot-box pilot-full"><div class="pb-label">Entregables formales</div><div class="pb-val" style="font-size:17px;margin-bottom:6px">3 documentos</div><div class="pb-desc">Activos instalados · Certificado MRV digital · Reporte ergonómico con personas mayores</div></div>
+          <div class="warn-box"><p><strong>Transparencia TRL 5:</strong> Proveedor de piloto validado, no industrial masivo aún. El piloto demuestra desempeño real antes de cualquier compromiso de escala.</p></div>
+          <div class="cta-stack">
+            <a href="#diagnostico" class="side-cta">Solicitar diagnóstico gratuito →</a>
+            <a href="https://wa.me/56912345678?text=Hola%20Raúl%2C%20soy%20de%20un%20municipio%20y%20quiero%20hablar%20de%20un%20piloto" target="_blank" class="side-wa">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Escribir por WhatsApp
+            </a>
+            <a href="https://calendly.com/sustentafab/piloto" target="_blank" class="side-cal">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Agendar reunión (Calendly)
+            </a>
+            <a href="piloto-municipal-esg-sustentafab.pptx" download class="side-dl">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Descargar Dossier Ejecutivo (.pptx)
+            </a>
           </div>
-          <div class="warn-box">
-            <p><strong>Transparencia TRL 5:</strong> Somos pre-comercial sólido, no proveedor industrial de escala masiva aún. El piloto acotado nos permite demostrar desempeño real antes de cualquier compromiso mayor.</p>
-          </div>
-          <a href="#contacto" class="side-cta">Solicitar diagnóstico gratuito</a>
-          <a href="#evidencia" class="side-ghost">Ver evidencia de pilotos →</a>
         </div>
       </div>
     </div>
 
-    <!-- CONTENIDO EMPRESA -->
+    <!-- EMPRESA -->
     <div class="segmented" id="seg-empresa">
       <div class="seg-grid">
         <div class="vp-list">
-          <div class="vp-item">
-            <div class="vp-num">01</div>
-            <div class="vp-body">
-              <h4>Economía circular cerrada: su residuo vuelve como su infraestructura</h4>
-              <p>Recibimos su merma polimérica industrial (films, big-bags, scraps, embalajes) y la devolvemos convertida en mobiliario para sus propias instalaciones, plantas o proyectos comunitarios — con trazabilidad de origen por lote.</p>
-              <span class="vp-tag">Circularidad cerrada · Scope 3</span>
-            </div>
-          </div>
-          <div class="vp-item">
-            <div class="vp-num">02</div>
-            <div class="vp-body">
-              <h4>Reportes de impacto listos para GRI, SASB e ISSB</h4>
-              <p>Cada contrato incluye balance de masa auditado: toneladas valorizadas, CO₂e evitado y relleno sanitario no utilizado. Datos compatibles con los formatos de reporte estándar para sus indicadores ESG y ratings de sostenibilidad.</p>
-              <span class="vp-tag">GRI · SASB · ESG reportable</span>
-            </div>
-          </div>
-          <div class="vp-item">
-            <div class="vp-num">03</div>
-            <div class="vp-body">
-              <h4>Storytelling ESG con impacto territorial visible</h4>
-              <p>De residuo industrial a banca pública durable en comunidades cercanas a su operación — un caso concreto de valor compartido, licencia social y mejora en indicadores de engagement comunitario. Con opción de branding corporativo en el mobiliario.</p>
-              <span class="vp-tag">RSE · Valor compartido</span>
-            </div>
-          </div>
-          <div class="vp-item">
-            <div class="vp-num">04</div>
-            <div class="vp-body">
-              <h4>Piloto controlado, sin compromiso de gran volumen</h4>
-              <p>Comenzamos con un volumen acotado de su merma limpia y segregada: 10–30 unidades de mobiliario para faena, instalaciones o proyecto comunitario. Medición a 6–12 meses con reporte de impacto listo para su informe de sostenibilidad.</p>
-              <span class="vp-tag">Piloto · Joint venture disponible</span>
-            </div>
-          </div>
+          <div class="vp-item"><div class="vp-num">01</div><div class="vp-body"><h4>Su residuo plástico vuelve como su infraestructura — trazado por lote</h4><p>Recibimos su merma polimérica industrial (films, big-bags, scraps, embalajes) y la convertimos en mobiliario para sus instalaciones o proyectos comunitarios. Balance de masa auditado de origen a producto final. De residuo Carozzi a banca corporativa certificada.</p><span class="vp-tag">Circularidad cerrada · Scope 3</span></div></div>
+          <div class="vp-item"><div class="vp-num">02</div><div class="vp-body"><h4>Reportes listos para GRI, SASB e ISSB — desde el primer piloto</h4><p>Cada contrato incluye reporte técnico auditable: kg valorizados, CO₂e evitado, relleno sanitario evitado, trazabilidad digital por lote. Compatible con los estándares de reporte más exigentes para sus indicadores ESG, ratings de sostenibilidad y cumplimiento Ley REP.</p><span class="vp-tag">GRI · SASB · ESG reportable · Ley REP</span></div></div>
+          <div class="vp-item"><div class="vp-num">03</div><div class="vp-body"><h4>Storytelling ESG con impacto territorial visible y brandeable</h4><p>De residuo industrial a mobiliario durable en comunidades cercanas a su operación. Caso concreto de valor compartido con opción de branding corporativo en el producto. Ideal para informes de sostenibilidad, campañas de comunicación y licencia social.</p><span class="vp-tag">RSE · Valor compartido · Licencia social</span></div></div>
+          <div class="vp-item"><div class="vp-num">04</div><div class="vp-body"><h4>Piloto acotado sin gran compromiso de volumen</h4><p>Comenzamos con ~1 tonelada de merma limpia y segregada → 10–30 unidades de mobiliario trazado para faena o proyecto comunitario. Reporte de impacto ESG a 6–12 meses listo para su informe anual. Opción de joint venture o offtake agreement para escalamiento.</p><span class="vp-tag">Piloto · Joint venture disponible</span></div></div>
         </div>
         <div class="side-panel">
           <h3>Piloto corporativo B2B</h3>
           <div class="pilot-row">
-            <div class="pilot-box">
-              <div class="pb-label">Residuo mínimo</div>
-              <div class="pb-val">~1 ton</div>
-              <div class="pb-desc">merma limpia y segregada por lote</div>
-            </div>
-            <div class="pilot-box">
-              <div class="pb-label">Producto retorno</div>
-              <div class="pb-val">10–30</div>
-              <div class="pb-desc">unidades de mobiliario trazado</div>
-            </div>
+            <div class="pilot-box"><div class="pb-label">Residuo mínimo</div><div class="pb-val">~1 ton</div><div class="pb-desc">merma limpia y segregada</div></div>
+            <div class="pilot-box"><div class="pb-label">Producto retorno</div><div class="pb-val">10–30</div><div class="pb-desc">unidades trazadas</div></div>
           </div>
-          <div class="pilot-box" style="margin-bottom:16px">
-            <div class="pb-label">Entregable ESG</div>
-            <div class="pb-val" style="font-size:18px">Reporte GRI-ready</div>
-            <div class="pb-desc">balance de masa · CO₂e evitado · trazabilidad por lote</div>
+          <div class="pilot-box pilot-full"><div class="pb-label">Entregable ESG</div><div class="pb-val" style="font-size:16px;margin-bottom:6px">Reporte GRI-ready</div><div class="pb-desc">Balance de masa · CO₂e evitado · Trazabilidad por lote · Formato auditable</div></div>
+          <div class="warn-box"><p><strong>Importante:</strong> TRL 5 — proveedor de innovación abierta y piloto ESG. Hoy complementa, no reemplaza, a valorizadores industriales de escala. Ideal como caso medible y comunicable en su estrategia circular.</p></div>
+          <div class="cta-stack">
+            <a href="#diagnostico" class="side-cta">Iniciar piloto ESG →</a>
+            <a href="https://wa.me/56912345678?text=Hola%20Raúl%2C%20soy%20de%20una%20empresa%20y%20quiero%20hablar%20de%20un%20piloto%20ESG" target="_blank" class="side-wa">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Escribir por WhatsApp
+            </a>
+            <a href="https://calendly.com/sustentafab/piloto" target="_blank" class="side-cal">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Agendar reunión (Calendly)
+            </a>
+            <a href="piloto-municipal-esg-sustentafab.pptx" download class="side-dl">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Descargar Dossier Ejecutivo (.pptx)
+            </a>
           </div>
-          <div class="warn-box">
-            <p><strong>Importante:</strong> Hoy somos TRL 5 — un proveedor de innovación abierta y piloto ESG, no un proveedor de escala industrial masiva. Ideal para complementar su estrategia circular con un caso medible y comunicable.</p>
-          </div>
-          <a href="#contacto" class="side-cta">Iniciar piloto ESG</a>
-          <a href="#evidencia" class="side-ghost">Ver datos de desempeño →</a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIOS -->
+<section id="precios">
+  <div class="container">
+    <div class="precios-hdr">
+      <div>
+        <div class="section-label">Precios de referencia</div>
+        <h2>Estructura de costos<br>desde <em>12 UF</em> por unidad</h2>
+      </div>
+      <p class="section-intro">Valores comparativos frente a licitaciones tradicionales — con ventaja en TCO a partir del mes 18–24 por eliminación del 66% del gasto en mantención.</p>
+    </div>
+    <div class="precio-grid">
+      <div class="precio-card">
+        <div class="precio-badge">Línea municipal B2G</div>
+        <h3>Escaño Climático Modular</h3>
+        <div class="precio-val">Desde 12 UF</div>
+        <div class="precio-clp">~$450.000 CLP + IVA · Incluye co-diseño</div>
+        <ul>
+          <li>Disipación pasiva de calor (−8°C vs hormigón)</li>
+          <li>Ergonomía senior con apoyabrazos</li>
+          <li>0 gasto en barniz/pintura/soldaduras</li>
+          <li>100% circular con trazabilidad MRV</li>
+          <li>Referencia: hormigón/madera $380k–$550k sin MRV</li>
+        </ul>
+      </div>
+      <div class="precio-card">
+        <div class="precio-badge">Línea municipal B2G</div>
+        <h3>Refugio Peatonal Resiliente</h3>
+        <div class="precio-val">Desde 115 UF</div>
+        <div class="precio-clp">~$4.500.000 CLP + IVA</div>
+        <ul>
+          <li>Estructura paramétrica autodisipante de calor</li>
+          <li>No se corroe con brisa costera ni salina</li>
+          <li>Paradero con sombra y protección UV</li>
+          <li>Auditable para metas Ley REP</li>
+          <li>Referencia: paradero metálico $4,2M–$6,8M</li>
+        </ul>
+      </div>
+      <div class="precio-card">
+        <div class="precio-badge">Movilidad senior</div>
+        <h3>Pack Movilidad Senior</h3>
+        <div class="precio-val">Desde 14 UF</div>
+        <div class="precio-clp">~$525.000 CLP + IVA · 5 Kits UV + 10 Grips</div>
+        <ul>
+          <li>Pantallas UV portátiles para andadores rollator</li>
+          <li>Fractal Grips anti-recalentamiento para bastones</li>
+          <li>Sensores Sustenta-Alert de riesgo térmico</li>
+          <li>Co-diseñados con personas mayores con artrosis</li>
+          <li>Sin equivalente climático en el mercado estándar</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tco-box">
+      <div class="tco-stat"><div class="tco-num">66%</div><div class="tco-lbl">menos mantención anual</div></div>
+      <div class="tco-divider"></div>
+      <div class="tco-stat"><div class="tco-num">18–24</div><div class="tco-lbl">meses para ROI positivo</div></div>
+      <div class="tco-divider"></div>
+      <div class="tco-stat"><div class="tco-num">>15 años</div><div class="tco-lbl">vida útil certificada</div></div>
+      <div class="tco-divider"></div>
+      <p class="tco-text">El mobiliario convencional exige 10–12% del costo inicial cada año en mantención (pintura, barniz, soldaduras, reposiciones). SustentaFab elimina ese costo: el TCO se vuelve sustancialmente más económico a partir del mes 18–24, operando con infraestructura compartida en startup.lab01 (Fundación Chile).</p>
     </div>
   </div>
 </section>
@@ -408,36 +498,97 @@ footer{background:var(--ink-2);padding:36px 48px;display:flex;justify-content:sp
 <!-- EVIDENCIA -->
 <section id="evidencia">
   <div class="container">
-    <div class="ev-header">
+    <div class="ev-hdr">
       <div>
-        <div class="section-label">Evidencia</div>
-        <h2>Datos reales de<br>nuestros <em>pilotos</em></h2>
+        <div class="section-label">Evidencia de pilotos</div>
+        <h2>Datos reales,<br>limitaciones <em>declaradas</em></h2>
       </div>
-      <p class="section-intro">Declaramos lo que tenemos y lo que nos falta. La transparencia es parte de nuestra propuesta de valor para compradores públicos y corporativos.</p>
+      <p class="section-intro">Mostramos lo que tenemos y lo que nos falta. Sin overclaiming. Los pilotos en Quilpué y Vitacura son la base — no el techo.</p>
     </div>
+
     <div class="ev-grid">
       <div class="ev-card">
         <div class="ev-stat">TRL 5</div>
-        <div class="ev-stat-label">Validado en entorno real</div>
-        <p>Componentes fabricados y expuestos en espacio público en Quilpué y Vitacura. Seguimiento activo de desempeño físico, resistencia UV y mantención efectiva.</p>
-        <div class="ev-badge"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg>Pilotos municipales activos</div>
+        <div class="ev-stat-lbl">Validado en entorno real · Fundación Chile + USACH LEMAA</div>
+        <h3>Pilotos municipales activos</h3>
+        <p>Componentes instalados en espacio público en Quilpué (I. Municipalidad, BNUP) y Vitacura. Seguimiento activo de desempeño físico, resistencia UV, temperatura superficial y mantención real.</p>
+        <div class="ev-badge"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg>Pilotos en 2 municipios</div>
       </div>
       <div class="ev-card">
-        <div class="ev-stat">100%</div>
-        <div class="ev-stat-label">Plástico reciclado trazado por lote</div>
-        <p>Declaración de origen por lote desde el residuo de entrada hasta el producto final. Balance de masa auditable para reportes ambientales y cumplimiento Ley REP.</p>
-        <div class="ev-badge"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg>Trazabilidad origen-producto</div>
+        <div class="ev-stat">−8°C</div>
+        <div class="ev-stat-lbl">Temperatura superficial vs hormigón en condición estival</div>
+        <h3>Disipación pasiva de calor</h3>
+        <p>Geometrías fractales y paramétricas que permiten flujo de aire y autodisipan el calor. El hormigón tradicional supera los 50°C bajo radiación directa — riesgo de quemaduras para adultos mayores.</p>
+        <div class="ev-badge"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg>Validación térmica LEMAA USACH</div>
       </div>
       <div class="ev-card">
         <div class="ev-stat">~40 kg</div>
-        <div class="ev-stat-label">Plástico por unidad · ~3,2 m³ relleno evitado c/25 ud.</div>
-        <p>Calculadora de valorización disponible en el proceso de diagnóstico. Los datos exactos se determinan por ensayos reológicos del material específico del cliente.</p>
-        <div class="ev-badge"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg>Calculadora personalizada</div>
+        <div class="ev-stat-lbl">Plástico reciclado por unidad · ~3,2 m³ relleno evitado c/25 ud.</div>
+        <h3>Trazabilidad de origen por lote</h3>
+        <p>Balance de masa auditable desde el residuo de entrada al producto final. Datos por lote compatibles con reportes MRV, Ley REP 20.920 y estándares GRI/SASB para empresas.</p>
+        <div class="ev-badge"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg>Calculadora ROI social disponible</div>
       </div>
     </div>
+
+    <!-- FOTOS PILOTOS -->
+    <div class="fotos-grid">
+      <div class="foto-card">
+        <div class="foto-placeholder">
+          <span class="foto-tag">Quilpué · BNUP</span>
+          <svg viewBox="0 0 48 48"><rect x="4" y="8" width="40" height="32" rx="3"/><circle cx="24" cy="22" r="7"/><path d="M4 32l10-8 8 6 8-10 14 12"/></svg>
+          <span class="upload-hint">Próximamente: fotos del piloto instalado en plaza pública</span>
+        </div>
+        <div class="foto-body">
+          <h4>Escaño Climático · Quilpué</h4>
+          <p>Piloto instalado en Bienes Nacionales de Uso Público. Seguimiento a 6 meses en curso.</p>
+        </div>
+      </div>
+      <div class="foto-card">
+        <div class="foto-placeholder">
+          <span class="foto-tag">Vitacura</span>
+          <svg viewBox="0 0 48 48"><rect x="4" y="8" width="40" height="32" rx="3"/><circle cx="24" cy="22" r="7"/><path d="M4 32l10-8 8 6 8-10 14 12"/></svg>
+          <span class="upload-hint">Próximamente: fotos del mobiliario en espacio público</span>
+        </div>
+        <div class="foto-body">
+          <h4>Módulo urbano · Vitacura</h4>
+          <p>Instalación en entorno urbano de alta exigencia estética y uso intensivo.</p>
+        </div>
+      </div>
+      <div class="foto-card">
+        <div class="foto-placeholder">
+          <span class="foto-tag">Proceso</span>
+          <svg viewBox="0 0 48 48"><rect x="4" y="8" width="40" height="32" rx="3"/><circle cx="24" cy="22" r="7"/><path d="M4 32l10-8 8 6 8-10 14 12"/></svg>
+          <span class="upload-hint">Próximamente: proceso de fabricación en startup.lab01 Fundación Chile</span>
+        </div>
+        <div class="foto-body">
+          <h4>Manufactura · startup.lab01</h4>
+          <p>Impresión 3D a gran escala en residencia activa Fundación Chile.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIOS -->
+    <div class="testimonios-grid">
+      <div class="testimonio-card">
+        <div class="t-quote">"</div>
+        <p class="t-text">El piloto en Quilpué nos permitió validar no solo la resistencia del material sino la aceptación real de los adultos mayores que co-diseñaron el escaño. La comunidad se apropió del espacio de una forma que no habíamos visto antes.</p>
+        <div class="t-author">
+          <div class="t-avatar">MQ</div>
+          <div>
+            <div class="t-name">Encargado/a Medio Ambiente</div>
+            <div class="t-role">I. Municipalidad de Quilpué · Testimonio piloto</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-pending">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        <p><strong>Testimonio Vitacura en proceso</strong><br>Carta de validación del piloto en gestión. Disponible próximo trimestre.</p>
+      </div>
+    </div>
+
     <div class="limitation-box">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <p><strong>Lo que aún estamos construyendo:</strong> datos de durabilidad a largo plazo (12–24 meses), análisis de ciclo de vida completo (LCA), certificación industrial formal en expansión y capacidad de producción para contratos de alto volumen. Esto es lo que exploramos juntos en el piloto. Si necesita un proveedor de escala industrial consolidado hoy, le recomendamos evaluar también a Pock o Revalora/Timberecco y conversemos cómo complementamos.</p>
+      <p><strong>Lo que estamos construyendo:</strong> datos de durabilidad a 12–24 meses, LCA completo, certificación industrial formal en expansión y capacidad de producción para contratos de alto volumen. Si requiere proveedor industrial consolidado hoy, evalúe también Pock o Revalora/Timberecco — y conversemos cómo nos complementamos en su estrategia circular.</p>
     </div>
   </div>
 </section>
@@ -445,33 +596,29 @@ footer{background:var(--ink-2);padding:36px 48px;display:flex;justify-content:sp
 <!-- PROCESO MRV -->
 <section id="proceso">
   <div class="container">
-    <div class="section-label">Metodología MRV</div>
-    <h2>Impacto que se <em>mide,</em><br>reporta y verifica</h2>
+    <div class="section-label">Metodología</div>
+    <h2>Diagnóstico → Diseño → Piloto<br>→ Reporte → <em>Escalamiento</em></h2>
     <div class="proceso-grid">
       <div>
-        <div class="paso"><div class="paso-num">01</div><div class="paso-body"><h4>Diagnóstico</h4><p>Caracterizamos el flujo de residuo plástico disponible, su calidad y segregación. Evaluamos el emplazamiento y definimos el diseño ergonómico e inclusivo adecuado al uso esperado.</p></div></div>
-        <div class="paso"><div class="paso-num">02</div><div class="paso-body"><h4>Diseño y prototipo</h4><p>Co-diseñamos el producto adaptado al contexto (municipio, faena, espacio comunitario). Validamos resistencia, ergonomía y acabado antes de producir la serie piloto.</p></div></div>
-        <div class="paso"><div class="paso-num">03</div><div class="paso-body"><h4>Piloto medible</h4><p>Instalamos las unidades y comenzamos el seguimiento: estado físico, mantención real, uso efectivo y percepción del usuario a 6 y 12 meses.</p></div></div>
-        <div class="paso"><div class="paso-num">04</div><div class="paso-body"><h4>Reporte MRV y escalamiento</h4><p>Entregamos el reporte técnico auditable (CO₂e evitado, kg valorizados, relleno evitado) listo para balances ESG, HuellaChile o reportes GRI. Definimos juntos el escalamiento.</p></div></div>
+        <div class="paso"><div class="paso-num">01</div><div class="paso-body"><h4>Diagnóstico territorial (gratuito)</h4><p>Caracterizamos el flujo de residuo disponible o la necesidad de infraestructura. Evaluamos emplazamiento, requerimientos ergonómicos y calculamos el ROI social estimado antes de comprometer cualquier presupuesto.</p></div></div>
+        <div class="paso"><div class="paso-num">02</div><div class="paso-body"><h4>Co-diseño participativo</h4><p>Talleres de Design Thinking con adultos mayores, CEAM o equipos corporativos. Adaptamos alturas, ergonomía, identidad visual y necesidades específicas — el producto final es el que la comunidad necesita, no un catálogo genérico.</p></div></div>
+        <div class="paso"><div class="paso-num">03</div><div class="paso-body"><h4>Piloto instalado en 60–90 días</h4><p>Fabricación, instalación y fijación en BNUP o instalaciones corporativas. Seguimiento a 6 y 12 meses: estado físico, mantención real, uso efectivo y percepción ciudadana.</p></div></div>
+        <div class="paso"><div class="paso-num">04</div><div class="paso-body"><h4>Reporte MRV y escalamiento</h4><p>Certificado digital auditable: kg plástico desviado, CO₂e evitado georreferenciado, relleno sanitario evitado. Listo para SECPLA, HuellaChile, GRI o balances ESG. Definimos juntos el escalamiento con datos reales.</p></div></div>
       </div>
       <div class="mrv-visual">
-        <svg width="240" height="240" viewBox="0 0 240 240" fill="none">
-          <defs>
-            <marker id="ac2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-              <path d="M2 1L8 5L2 9" fill="none" stroke="#0F6E56" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </marker>
-          </defs>
-          <circle cx="120" cy="120" r="95" fill="#E1F5EE" opacity="0.4"/>
-          <path d="M120,25 A95,95 0 1,1 30,150" fill="none" stroke="#0F6E56" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ac2)"/>
-          <circle cx="120" cy="120" r="40" fill="none" stroke="#0F6E56" stroke-width="1" opacity="0.3"/>
-          <circle cx="120" cy="120" r="14" fill="#0F6E56" opacity="0.15"/>
-          <circle cx="120" cy="120" r="6" fill="#0F6E56"/>
-          <text x="120" y="16" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#0F6E56" font-weight="500">MEDIR</text>
-          <text x="224" y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#0F6E56" font-weight="500">REPORTAR</text>
-          <text x="120" y="232" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#0F6E56" font-weight="500">VERIFICAR</text>
-          <text x="16" y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#0F6E56" font-weight="500">RECONOCER</text>
+        <svg width="220" height="220" viewBox="0 0 220 220" fill="none">
+          <defs><marker id="ac3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#0F6E56" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+          <circle cx="110" cy="110" r="86" fill="#E1F5EE" opacity="0.35"/>
+          <path d="M110,24 A86,86 0 1,1 27,138" fill="none" stroke="#0F6E56" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ac3)"/>
+          <circle cx="110" cy="110" r="36" fill="none" stroke="#0F6E56" stroke-width="1" opacity="0.3"/>
+          <circle cx="110" cy="110" r="12" fill="#0F6E56" opacity="0.12"/>
+          <circle cx="110" cy="110" r="5" fill="#0F6E56"/>
+          <text x="110" y="14" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#0F6E56" font-weight="500">MEDIR</text>
+          <text x="208" y="114" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#0F6E56" font-weight="500">REPORTAR</text>
+          <text x="110" y="214" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#0F6E56" font-weight="500">VERIFICAR</text>
+          <text x="12" y="114" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#0F6E56" font-weight="500">RECONOCER</text>
         </svg>
-        <p>Cada entrega incluye certificado de impacto ambiental auditable — datos listos para sus balances climáticos, reportes ESG y licitaciones con criterios sustentables.</p>
+        <p>Certificado digital MRV por cada activo instalado — georreferenciado, auditable por terceros y listo para sus reportes de sostenibilidad.</p>
       </div>
     </div>
   </div>
@@ -482,23 +629,25 @@ footer{background:var(--ink-2);padding:36px 48px;display:flex;justify-content:sp
   <div class="container">
     <div class="nos-grid">
       <div class="nos-left">
-        <div class="section-label">Sobre nosotros</div>
-        <h2>Cerramos el ciclo<br>del <em>plástico</em></h2>
-        <p>SustentaFab es una empresa de base tecnológica que integra ecodiseño, ciencia de materiales y fabricación aditiva para transformar residuos poliméricos en infraestructura durable e inteligente.</p>
-        <p>Operamos con pilotos activos en Quilpué y Vitacura, consolidando la validación tecnológica TRL 3→5 para el escalamiento de nuestra planta de impresión 3D automatizada.</p>
+        <div class="section-label">Respaldo institucional</div>
+        <h2>Tecnología validada con<br><em>respaldo científico</em></h2>
+        <p>SustentaFab es una empresa de base tecnológica en residencia activa en startup.lab01 (Fundación Chile), con validación científica en Laboratorios LEMAA de la Universidad de Santiago (USACH) y laboratorio urbano en la I. Municipalidad de Quilpué.</p>
+        <p>Integramos ecodiseño paramétrico, ciencia de materiales y fabricación aditiva para transformar residuos poliméricos en infraestructura inclusiva y trazable.</p>
+        <div class="nos-badges">
+          <span class="nos-badge">Fundación Chile · startup.lab01</span>
+          <span class="nos-badge">USACH · LEMAA</span>
+          <span class="nos-badge">I. Municipalidad de Quilpué · BNUP</span>
+        </div>
         <div class="fundador">
-          <div class="f-avatar">RG</div>
-          <div>
-            <div class="f-name">Raúl Galleguillos</div>
-            <div class="f-role">Director y Fundador</div>
-          </div>
+          <div class="f-av">RG</div>
+          <div><div class="f-name">Raúl Galleguillos Fernández</div><div class="f-role">Director General · SustentaFab SpA</div></div>
         </div>
       </div>
       <div class="nos-right">
-        <div class="valor-card"><h4>Ecodiseño + Ciencia de materiales</h4><p>Plástico reciclado como material primario de alta prestación, no como sustituto. Optimizado para intemperie, UV y uso intensivo en espacio público.</p></div>
-        <div class="valor-card"><h4>Impresión 3D modular a gran escala</h4><p>Flexibilidad de diseño para adaptar cada producto al contexto — ergonomía para adultos mayores, resistencia para faenas industriales, identidad territorial para municipios.</p></div>
-        <div class="valor-card"><h4>Trazabilidad ambiental completa</h4><p>Conexión verificable entre el residuo de origen y el producto final. Datos irrefutables para reguladores, auditores y programas de certificación vigentes en Chile.</p></div>
-        <div class="valor-card"><h4>B2G · B2B · Compra pública y privada</h4><p>Licitaciones, convenios marco, Compra Ágil y contratos corporativos directos. Nos adaptamos a los mecanismos de compra de cada tipo de cliente.</p></div>
+        <div class="valor-card"><h4>Ecodiseño paramétrico + Ciencia de materiales</h4><p>Geometrías fractales optimizadas para disipación térmica pasiva. Plástico reciclado como material primario de alta prestación, no como sustituto — inmune a UV, brisa marina y uso intensivo.</p></div>
+        <div class="valor-card"><h4>Impresión 3D modular a gran escala</h4><p>Flexibilidad de diseño para adaptar cada producto al contexto — ergonomía senior en plazas, robustez para faenas industriales, identidad territorial para municipios. Sin inversión en maquinaria por parte del cliente.</p></div>
+        <div class="valor-card"><h4>Trazabilidad digital MRV georreferenciada</h4><p>Cada activo instalado tiene plataforma digital de seguimiento. Datos irrefutables y auditables para SECPLA, reguladores, auditores externos y programas de certificación activos en Chile.</p></div>
+        <div class="valor-card"><h4>B2G · B2B · Compra pública y privada</h4><p>Licitaciones, convenios marco, Compra Ágil y contratos directos. Opción de Convenio de Colaboración Técnica tipo "Laboratorio Urbano" para municipios, y joint ventures para empresas.</p></div>
       </div>
     </div>
   </div>
@@ -508,65 +657,53 @@ footer{background:var(--ink-2);padding:36px 48px;display:flex;justify-content:sp
 <section id="blog">
   <div class="container">
     <div class="blog-hdr">
-      <div>
-        <div class="section-label">Blog</div>
-        <h2>Innovación, residuos<br>e <em>impacto real</em></h2>
-      </div>
-      <a href="#" class="blog-lnk">Ver todos los artículos →</a>
+      <div><div class="section-label">Blog</div><h2>Datos, innovación<br>e <em>impacto real</em></h2></div>
+      <a href="#" class="blog-lnk">Ver todos →</a>
     </div>
     <div class="blog-grid">
       <div class="blog-card">
-        <div class="blog-thumb">
-          <span class="blog-cat">Municipios · B2G</span>
-          <svg viewBox="0 0 48 48"><path d="M6 18l18-14 18 14v24a2 2 0 01-2 2H8a2 2 0 01-2-2z"/><polyline points="18 44 18 24 30 24 30 44"/></svg>
-        </div>
+        <div class="blog-thumb"><span class="blog-cat">Municipios · Senior</span><svg viewBox="0 0 48 48"><path d="M6 18l18-14 18 14v24a2 2 0 01-2 2H8a2 2 0 01-2-2z"/></svg></div>
         <div class="blog-body">
           <div class="blog-date">Junio 2025</div>
-          <h3>Diseño inclusivo para adultos mayores: lo que los municipios deben exigir al comprar mobiliario urbano</h3>
-          <p>Alturas, apoyabrazos, superficies y accesibilidad universal — los criterios técnicos que deben ir en las bases de licitación de mobiliario sustentable.</p>
-          <a href="#" class="blog-read">Leer artículo <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="10 4 14 8 10 12"/></svg></a>
+          <h3>49% de adultos mayores expuestos al calor extremo en plazas de hormigón — lo que los municipios deben hacer</h3>
+          <p>Por qué el mobiliario tradicional es un riesgo de salud pública y cómo el ecodiseño paramétrico resuelve la trampa térmica del espacio público.</p>
+          <a href="#" class="blog-read">Leer <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="10 4 14 8 10 12"/></svg></a>
         </div>
       </div>
       <div class="blog-card">
-        <div class="blog-thumb">
-          <span class="blog-cat">Tecnología · TRL</span>
-          <svg viewBox="0 0 48 48"><rect x="4" y="8" width="40" height="32" rx="2"/><line x1="16" y1="44" x2="32" y2="44"/><line x1="24" y1="40" x2="24" y2="44"/></svg>
-        </div>
+        <div class="blog-thumb"><span class="blog-cat">TRL · Evidencia</span><svg viewBox="0 0 48 48"><polyline points="6 36 18 20 28 28 38 14 44 20"/></svg></div>
         <div class="blog-body">
           <div class="blog-date">Mayo 2025</div>
-          <h3>De TRL 3 a TRL 5: qué significa y por qué importa antes de firmar un contrato</h3>
-          <p>Documentamos la validación en entorno real en Quilpué — y por qué la madurez tecnológica debe ser un criterio explícito en las compras de innovación pública.</p>
-          <a href="#" class="blog-read">Leer artículo <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="10 4 14 8 10 12"/></svg></a>
+          <h3>De TRL 3 a TRL 5 en Quilpué: qué medimos, qué encontramos y qué nos falta</h3>
+          <p>Datos reales de la validación en entorno real — resistencia física, temperatura superficial, aceptación ciudadana y el camino hacia la escala industrial.</p>
+          <a href="#" class="blog-read">Leer <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="10 4 14 8 10 12"/></svg></a>
         </div>
       </div>
       <div class="blog-card">
-        <div class="blog-thumb">
-          <span class="blog-cat">ESG · Empresas</span>
-          <svg viewBox="0 0 48 48"><polyline points="44 12 26 30 18 22 2 36"/><polyline points="32 12 44 12 44 24"/></svg>
-        </div>
+        <div class="blog-thumb"><span class="blog-cat">ESG · Empresas</span><svg viewBox="0 0 48 48"><polyline points="44 12 26 30 18 22 2 36"/><polyline points="32 12 44 12 44 24"/></svg></div>
         <div class="blog-body">
           <div class="blog-date">Abril 2025</div>
-          <h3>Su residuo plástico industrial puede convertirse en infraestructura corporativa trazada</h3>
-          <p>Cómo Carozzi, Melón u otras empresas pueden cerrar su propio ciclo, mejorar Scope 3 y generar storytelling ESG con un piloto acotado y medible.</p>
-          <a href="#" class="blog-read">Leer artículo <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="10 4 14 8 10 12"/></svg></a>
+          <h3>Carozzi, Melón, Anglo American: cómo su merma plástica puede ser su mejor reporte ESG</h3>
+          <p>Análisis de cómo las empresas con residuo polimérico industrial pueden cerrar su ciclo, mejorar Scope 3 y generar un caso medible para sus informes de sostenibilidad.</p>
+          <a href="#" class="blog-read">Leer <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="10 4 14 8 10 12"/></svg></a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto">
+<!-- DIAGNÓSTICO -->
+<section id="diagnostico">
   <div class="container">
-    <div class="contacto-grid">
+    <div class="diag-grid">
       <div>
         <div class="section-label">Contacto</div>
-        <div class="c-info">
-          <h3>Hablemos de su proyecto de infraestructura circular</h3>
-          <p>Ya sea una licitación municipal, un contrato ESG corporativo o un piloto de economía circular cerrada — el primer paso es un diagnóstico gratuito sin compromiso.</p>
+        <div class="diag-info">
+          <h3>Diagnóstico gratuito — sin compromiso de compra</h3>
+          <p>El primer paso es entender su necesidad: cuántas unidades, qué residuo tiene disponible, en qué plazo y cuál es el mayor obstáculo hoy. En menos de 48 horas hábiles le enviamos un análisis preliminar con ROI social estimado.</p>
           <div class="c-detail">
             <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            <div><strong>Raúl Galleguillos</strong>Director y Fundador, SustentaFab</div>
+            <div><strong>Raúl Galleguillos Fernández</strong>Director General, SustentaFab SpA</div>
           </div>
           <div class="c-detail">
             <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -574,20 +711,37 @@ footer{background:var(--ink-2);padding:36px 48px;display:flex;justify-content:sp
           </div>
           <div class="c-detail">
             <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div><strong>Chile</strong>Pilotos activos en Quilpué y Vitacura</div>
+            <div><strong>Chile</strong>Pilotos activos: Quilpué · Vitacura</div>
+          </div>
+          <div class="contact-ctas">
+            <a href="https://wa.me/56912345678?text=Hola%20Raúl%2C%20quiero%20solicitar%20un%20diagnóstico%20para%20un%20piloto%20SustentaFab" target="_blank" class="cc-wa">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Escribir por WhatsApp ahora
+            </a>
+            <a href="https://calendly.com/sustentafab/piloto" target="_blank" class="cc-cal">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Agendar reunión en Calendly
+            </a>
+            <a href="piloto-municipal-esg-sustentafab.pptx" download class="cc-dl">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Descargar Dossier Ejecutivo B2G/ESG (.pptx)
+            </a>
           </div>
           <div class="pilots-box">
             <h4>Canales de compra pública</h4>
             <div class="p-tags">
-              <span class="p-tag">Licitación pública</span>
+              <span class="p-tag">Compra Ágil (&lt;30 UTM)</span>
               <span class="p-tag">Convenio marco</span>
-              <span class="p-tag">Compra Ágil</span>
+              <span class="p-tag">Licitación pública</span>
               <span class="p-tag">Contrato directo B2B</span>
+              <span class="p-tag">Laboratorio Urbano</span>
             </div>
           </div>
         </div>
       </div>
-      <div>
+      <div class="diag-form">
+        <h4>Formulario de diagnóstico</h4>
+        <p class="form-note">Le respondemos en menos de 48 hrs con análisis preliminar de ROI social estimado.</p>
         <form class="contact-form" onsubmit="return false">
           <div class="form-row">
             <div><label for="nombre">Nombre</label><input type="text" id="nombre" placeholder="Su nombre"/></div>
@@ -595,8 +749,8 @@ footer{background:var(--ink-2);padding:36px 48px;display:flex;justify-content:sp
           </div>
           <div><label for="email">Correo electrónico</label><input type="email" id="email" placeholder="correo@organizacion.cl"/></div>
           <div>
-            <label for="perfil">Perfil</label>
-            <select id="perfil">
+            <label for="perfil2">Perfil</label>
+            <select id="perfil2">
               <option value="">Seleccione su perfil</option>
               <option>Municipio / Gobierno local</option>
               <option>Empresa corporativa (ESG/sostenibilidad)</option>
@@ -604,18 +758,31 @@ footer{background:var(--ink-2);padding:36px 48px;display:flex;justify-content:sp
               <option>Otro</option>
             </select>
           </div>
-          <div>
-            <label for="tipo">Tipo de proyecto</label>
-            <select id="tipo">
-              <option value="">Seleccione una opción</option>
-              <option>Mobiliario urbano inclusivo (municipio)</option>
-              <option>Piloto ESG corporativo</option>
-              <option>Economía circular cerrada (residuo propio)</option>
-              <option>Licitación / Convenio marco</option>
-              <option>Quiero conocer más antes de decidir</option>
-            </select>
+          <div class="form-row">
+            <div>
+              <label for="unidades">Unidades estimadas</label>
+              <select id="unidades">
+                <option value="">¿Cuántas unidades?</option>
+                <option>2–5 unidades (piloto mínimo)</option>
+                <option>10–20 unidades</option>
+                <option>20–50 unidades</option>
+                <option>+50 unidades</option>
+                <option>No sé aún</option>
+              </select>
+            </div>
+            <div>
+              <label for="plazo">Plazo</label>
+              <select id="plazo">
+                <option value="">¿En qué plazo?</option>
+                <option>Menos de 3 meses</option>
+                <option>3 a 6 meses</option>
+                <option>6 a 12 meses</option>
+                <option>Más de 12 meses</option>
+                <option>Explorando opciones</option>
+              </select>
+            </div>
           </div>
-          <div><label for="mensaje">Cuéntenos brevemente</label><textarea id="mensaje" placeholder="¿Qué necesita, en qué plazo y cuál es el mayor obstáculo hoy?"></textarea></div>
+          <div><label for="mensaje">Mayor obstáculo o pregunta clave</label><textarea id="mensaje" placeholder="¿Qué le impide avanzar hoy? ¿Qué necesita saber para dar el primer paso?"></textarea></div>
           <button type="submit" class="form-submit">Solicitar diagnóstico gratuito →</button>
         </form>
       </div>
@@ -623,23 +790,18 @@ footer{background:var(--ink-2);padding:36px 48px;display:flex;justify-content:sp
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="f-brand">sustenta<strong>fab</strong> · Manufactura Circular · Chile</div>
-  <div class="f-copy">© 2025 SustentaFab. Todos los derechos reservados.</div>
+  <div class="f-copy">© 2025 SustentaFab SpA · Residencia startup.lab01 Fundación Chile · Validación LEMAA USACH</div>
 </footer>
 
 <script>
-function selectPerfil(perfil) {
-  document.querySelectorAll('.btn-perfil').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.segmented').forEach(s => s.classList.remove('visible'));
-  document.getElementById('btn-' + perfil).classList.add('active');
-  document.getElementById('seg-' + perfil).classList.add('visible');
-  setTimeout(() => {
-    document.getElementById('seg-' + perfil).scrollIntoView({behavior:'smooth', block:'nearest'});
-  }, 100);
+function selectPerfil(p){
+  document.querySelectorAll('.btn-perfil').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.segmented').forEach(s=>s.classList.remove('visible'));
+  document.getElementById('btn-'+p).classList.add('active');
+  document.getElementById('seg-'+p).classList.add('visible');
 }
-// Activar municipio por defecto
 selectPerfil('municipio');
 </script>
 </body>
